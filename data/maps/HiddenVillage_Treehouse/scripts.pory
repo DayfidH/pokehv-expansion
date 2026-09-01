@@ -1,0 +1,80 @@
+mapscripts HiddenVillage_Treehouse_MapScripts {
+    // Moved to the frame table so it waits for the screen to fade in!
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_HIDDEN_VILLAGE_STATE, 3: HiddenVillage_Treehouse_EventScript_Cutscene
+    ]
+}
+
+
+script HiddenVillage_Treehouse_EventScript_Cutscene {
+    lockall
+    
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_PlayerMovesToChair)
+    waitmovement(0)
+    
+    // I added format() and \p (paragraph breaks) here so the player 
+    // has to press 'A' between each person speaking.
+    msgbox(format("Heart: Today was so fun! Taming Pokémon looks so easy now thanks to the Elder!\pBrain: It looks easy but I guarantee you it's not...\pStrength: Time to go home!"))
+    closemessage
+    
+    // Changing this to 4 prevents the frame table from looping the cutscene
+    setvar(VAR_HIDDEN_VILLAGE_STATE, 4)
+    
+    // 1. Start all three movements simultaneously
+    applymovement(LOCALID_STRENGTH, Movement_StrengthLeaves)
+    applymovement(LOCALID_HEART, Movement_HeartLeaves)
+    applymovement(LOCALID_BRAIN, Movement_BrainLeaves)
+    
+    // 2. Strength has the shortest path (4 steps). Wait for him first.
+    waitmovement(LOCALID_STRENGTH)
+    playse(SE_EXIT)
+    removeobject(LOCALID_STRENGTH)
+    
+    // 3. Heart has the next shortest path (6 steps). Wait for her second.
+    waitmovement(LOCALID_HEART)
+    playse(SE_EXIT)
+    removeobject(LOCALID_HEART)
+    
+    // 4. Brain has the longest path (7 steps). Wait for him last.
+    waitmovement(LOCALID_BRAIN)
+    playse(SE_EXIT)
+    removeobject(LOCALID_BRAIN)
+    
+    // Make sure to set your flags here so they stay gone!
+    setflag(FLAG_HIDE_TREEHOUSE_NPCS)
+
+    releaseall
+    end
+}
+
+script HiddenVillage_Treehouse_EventScript_DefaultText {
+    lock
+    faceplayer
+    msgbox(format("Hi {PLAYER}!"))
+    release
+    end
+}
+
+movement Movement_PlayerMovesToChair {
+    walk_up * 2
+    walk_left
+    face_up
+}
+
+movement Movement_StrengthLeaves {
+    walk_down * 3
+    walk_slow_down
+}
+
+movement Movement_HeartLeaves {
+    walk_down * 2
+    walk_right * 3
+    walk_slow_down
+}
+
+movement Movement_BrainLeaves {
+    delay_16 * 1      // Makes Brain wait half a second before stepping
+    walk_right * 2
+    walk_down * 4
+    walk_slow_down
+}

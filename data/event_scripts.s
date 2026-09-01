@@ -1738,3 +1738,17 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/battle_frontier.inc"
 	.include "data/scripts/apricorn_tree.inc"
 	.include "data/scripts/wild_encounter.inc"
+
+	.include "data/maps/HiddenVillage/scripts.inc"
+
+	.include "data/maps/HiddenVillage_PlayerHouse/scripts.inc"
+
+	.include "data/maps/HiddenVillage_EldersLab/scripts.inc"
+
+	.include "data/maps/HiddenVillage_Treehouse/scripts.inc"
+
+	.include "data/maps/HiddenForest/scripts.inc"
+
+	.include "data/maps/HiddenVillage_PlayersHouse_ParentsRoom/scripts.inc"
+
+	.include "data/maps/HiddenVillage_PlayersHouse2F/scripts.inc"

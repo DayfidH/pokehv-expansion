@@ -23,10 +23,8 @@
     {
       "id": "HEAL_LOCATION_PETALBURG_CITY",
       "map": "MAP_PETALBURG_CITY",
-      "x": 20,
-      "y": 17,
-      "respawn_map": "MAP_PETALBURG_CITY_POKEMON_CENTER_1F",
-      "respawn_npc": "LOCALID_PETALBURG_NURSE"
+      "x": 4,
+      "y": 26
     },
     {
       "id": "HEAL_LOCATION_SLATEPORT_CITY",
@@ -193,10 +191,10 @@
       "map": "MAP_PALLET_TOWN",
       "x": 6,
       "y": 8,
-      "respawn_x": 8,
-      "respawn_y": 5,
       "respawn_map": "MAP_PALLET_TOWN_PLAYERS_HOUSE_1F",
-      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM"
+      "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM",
+      "respawn_x": 8,
+      "respawn_y": 5
     },
     {
       "id": "HEAL_LOCATION_VIRIDIAN_CITY",
@@ -349,6 +347,12 @@
       "y": 12,
       "respawn_map": "MAP_SIX_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_SIX_ISLAND_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_HIDDEN_VILLAGE",
+      "map": "MAP_HIDDEN_VILLAGE",
+      "x": 4,
+      "y": 26
     }
   ]
 }

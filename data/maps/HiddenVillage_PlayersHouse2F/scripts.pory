@@ -1,0 +1,37 @@
+mapscripts HiddenVillage_PlayersHouse2F_MapScripts {}
+
+script HiddenVillage_EventScript_PlayersBedMasterTrigger {
+    lockall
+    
+    switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
+        case 4:
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+            msgbox(format("You laid down, and started drifting off to sleep..."))
+            closemessage
+            fadescreen(1)
+            delay(30)
+            fadescreen(0)
+            delay(30)
+            fadescreen(1)
+            delay(45)
+            fadescreen(0)
+            delay(30)
+            fadescreen(1)
+            delay(180)
+            msgbox(format("--DREAM SEQUENCE 2--"))
+            closemessage
+            fadescreen(0)
+            setvar(VAR_HIDDEN_VILLAGE_STATE, 5)
+        default:
+            msgbox(format("It's still too early to go to bed..."))
+            closemessage
+            applymovement(OBJ_EVENT_ID_PLAYER, HiddenVillage_PlayersHouse2F_Movement_ExitBed)
+    }
+    
+    releaseall
+    end
+}
+
+movement HiddenVillage_PlayersHouse2F_Movement_ExitBed {
+    walk_right
+}

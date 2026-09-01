@@ -1,0 +1,110 @@
+const LOCALID_ELDER = 1
+
+// --------------------------------------------------
+// Map Scripts
+// --------------------------------------------------
+mapscripts HiddenVillage_EldersLab_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: HiddenVillage_EldersLab_OnTransition
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_HIDDEN_VILLAGE_STATE, 0: HiddenVillage_EldersLab_EventScript_IntroCutscene
+    ]
+}
+
+// --------------------------------------------------
+// Map Transition & State Management
+// --------------------------------------------------
+script HiddenVillage_EldersLab_OnTransition {
+    // Hide the Elder ONLY when the state is exactly 1 (when he is in the backyard)
+    // During State 0 and State 2+, the flag naturally remains clear, so he will spawn normally.
+    if (var(VAR_HIDDEN_VILLAGE_STATE) == 1) {
+        setflag(FLAG_TEMP_1)
+    }
+}
+
+// --------------------------------------------------
+// Automatic Intro Cutscene (State 0)
+// --------------------------------------------------
+script HiddenVillage_EldersLab_EventScript_IntroCutscene {
+    lockall
+    msgbox(format("Ah! {PLAYER}!"))
+    closemessage
+
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, HiddenVillage_EldersLab_Movement_CameraMovementOne)
+    waitmovement(0)
+    
+    applymovement(OBJ_EVENT_ID_CAMERA, HiddenVillage_EldersLab_Movement_CameraPansToPlayer)
+    applymovement(LOCALID_ELDER, HiddenVillage_EldersLab_Movement_ElderWalksToPlayer)
+    waitmovement(0)
+    
+    special(RemoveCameraObject)
+    
+    msgbox(format("You're finally here, everybody is already in the backyard waiting for us. Let's head out."))
+    closemessage
+    
+    applymovement(OBJ_EVENT_ID_PLAYER, HiddenVillage_EldersLab_Movement_PlayerMovesRight)
+    waitmovement(0)
+    
+    applymovement(LOCALID_ELDER, HiddenVillage_EldersLab_Movement_ElderExitsLab)
+    waitmovement(0)
+    applymovement(LOCALID_ELDER, HiddenVillage_EldersLab_Movement_ElderExitsLab)
+    playse(SE_EXIT)
+    removeobject(LOCALID_ELDER)
+    setflag(FLAG_TEMP_1)
+    
+    setvar(VAR_HIDDEN_VILLAGE_STATE, 1)
+    
+    releaseall
+    end
+}
+
+// --------------------------------------------------
+// Main NPC Interaction Script (For State 2+)
+// --------------------------------------------------
+script HiddenVillage_EldersLab_EventScript_Elder {
+    lock
+    faceplayer
+    
+    switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
+        case 2:
+            msgbox(format("Ah, {PLAYER}. The meeting in the backyard went well. We have much to discuss."))
+        case 3:
+            msgbox(format("The village is relying on you. Have you checked the garden yet?"))
+        default:
+            msgbox(format("The village is relying on you. Have you checked the garden yet?"))
+    }
+    
+    closemessage
+    release
+    end
+}
+
+// --------------------------------------------------
+// Movement Data
+// --------------------------------------------------
+movement HiddenVillage_EldersLab_Movement_CameraMovementOne {
+    walk_up * 3
+    walk_left * 4
+    walk_up * 2
+}
+
+movement HiddenVillage_EldersLab_Movement_CameraPansToPlayer {
+    walk_down * 2
+    walk_right * 4
+    walk_down * 3
+}
+
+movement HiddenVillage_EldersLab_Movement_ElderWalksToPlayer {
+    walk_down * 2
+    walk_right * 4
+    walk_down * 3
+}
+
+movement HiddenVillage_EldersLab_Movement_PlayerMovesRight {
+    walk_right
+    face_left
+}
+
+movement HiddenVillage_EldersLab_Movement_ElderExitsLab {
+    walk_down
+}

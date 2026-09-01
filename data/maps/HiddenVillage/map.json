@@ -1,0 +1,254 @@
+{
+  "id": "MAP_HIDDEN_VILLAGE",
+  "name": "HiddenVillage",
+  "layout": "LAYOUT_HIDDEN_VILLAGE",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_PETALBURG_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "local_id": "LOCALID_LADY",
+      "graphics_id": "OBJ_EVENT_GFX_DAISY",
+      "x": 11,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HiddenVillage_EventScript_Lady",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_FRIEND_BRAIN",
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
+      "x": 21,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HiddenVillage_EventScript_DefaultText",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "local_id": "LOCALID_FRIEND_HEART",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 20,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HiddenVillage_EventScript_FriendHeart",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "local_id": "LOCALID_FRIEND_STRENGTH",
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER_HNS",
+      "x": 18,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HiddenVillage_EventScript_FriendStrength",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KURT_HNS",
+      "x": 16,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "local_id": "LOCALID_INTRO_HEART",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 9,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDDEN_VILLAGE_HEART_INTRO_COMPLETE"
+    },
+    {
+      "local_id": "LOCALID_TREEHOUSE_STRENGTH",
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER_HNS",
+      "x": 7,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HiddenVillage_EventScript_FriendStrength",
+      "flag": "FLAG_TEMP_13"
+    },
+    {
+      "local_id": "LOCALID_TREEHOUSE_HEART",
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 7,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_12"
+    },
+    {
+      "local_id": "LOCALID_TREEHOUSE_BRAIN",
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_12"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MILTANK)",
+      "x": 4,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_VILLAGE_PLAYER_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_VILLAGE_ELDERS_LAB",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_VILLAGE_TREEHOUSE",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "0",
+      "script": "HiddenVillage_EventScript_LateTriggerRight"
+    },
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "0",
+      "script": "HiddenVillage_EventScript_LateTriggerRight"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "0",
+      "script": "HiddenVillage_EventScript_LateTriggerLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "0",
+      "script": "HiddenVillage_EventScript_LateTriggerLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "0",
+      "script": "HiddenVillage_EventScript_LateTriggerLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "0",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "1",
+      "script": "HiddenVillage_EventScript_ElderClass_Left"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "1",
+      "script": "HiddenVillage_EventScript_ElderClass_Right"
+    }
+  ],
+  "bg_events": []
+}

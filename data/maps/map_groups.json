@@ -77,6 +77,8 @@
     "gMapGroup_IndoorSevenIslandRoute_Frlg"
   ],
   "gMapGroup_TownsAndRoutes": [
+    "HiddenVillage",
+    "HiddenForest",
     "PetalburgCity",
     "SlateportCity",
     "MauvilleCity",
@@ -197,6 +199,11 @@
     "PacifidlogTown_House5"
   ],
   "gMapGroup_IndoorPetalburg": [
+    "HiddenVillage_PlayerHouse",
+    "HiddenVillage_PlayersHouse2F",
+    "HiddenVillage_PlayersHouse_ParentsRoom",
+    "HiddenVillage_EldersLab",
+    "HiddenVillage_Treehouse",
     "PetalburgCity_WallysHouse",
     "PetalburgCity_Gym",
     "PetalburgCity_House1",
