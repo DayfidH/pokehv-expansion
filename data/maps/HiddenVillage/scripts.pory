@@ -6,6 +6,8 @@ const LOCALID_INTRO_HEART = 6
 const LOCALID_TREEHOUSE_STRENGTH = 7
 const LOCALID_TREEHOUSE_HEART = 8
 const LOCALID_TREEHOUSE_BRAIN = 9
+const LOCALID_MILTANK_QUEST = 10
+const LOCALID_SHADOW = 11
 
 // --------------------------------------------------
 // Map Scripts
@@ -25,7 +27,7 @@ script HiddenVillage_OnTransition {
     if (flag(FLAG_HIDDEN_VILLAGE_HEART_INTRO_COMPLETE)) {
         setvar(VAR_TEMP_0, 1)
     }
-
+        setflag(FLAG_TEMP_14)
     // 2. Map Layout Management based on story state
     switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
         //Beginning of First Day
@@ -38,6 +40,7 @@ script HiddenVillage_OnTransition {
             setobjectmovementtype(LOCALID_LADY, MOVEMENT_TYPE_LOOK_AROUND)
             setflag(FLAG_TEMP_12) 
             setflag(FLAG_TEMP_13) 
+
         //After First Class
         case 2: 
             setobjectxyperm(LOCALID_LADY, 17, 5)
@@ -47,7 +50,8 @@ script HiddenVillage_OnTransition {
             setflag(FLAG_TEMP_11) 
             
             // Hide Treehouse Heart/Brain
-            setflag(FLAG_TEMP_12) 
+            setflag(FLAG_TEMP_12)
+            setflag(FLAG_TEMP_13)
             
             // Update Treehouse Strength's location, and do NOT set FLAG_TEMP_13 so he stays visible
             setobjectxyperm(LOCALID_TREEHOUSE_STRENGTH, 11, 11)
@@ -56,7 +60,8 @@ script HiddenVillage_OnTransition {
         //After Entering Tree House
         case 3:
             setflag(FLAG_TEMP_11) 
-            setflag(FLAG_TEMP_12) 
+            setflag(FLAG_TEMP_12)
+            setflag(FLAG_TEMP_13)
             
             // In State 2, Strength climbs the vine and is removed. 
             // Therefore, he MUST be hidden when the map reloads in State 3.
@@ -127,10 +132,30 @@ script HiddenVillage_EventScript_ElderClass {
     applymovement(LOCALID_FRIEND_BRAIN, HiddenVillage_Movement_BrainToClass)
     waitmovement(0)
     
-    msgbox(format("Elder: Welcome everybody, today we're going to be learning about taming Pokémon. --To be continued--"))
+    msgbox(format("Elder: Welcome everybody, today we're going to be learning about taming Pokémon. Taming Pokemon is the act of forming trust with a Pok\emon. Both sides need to trust each other. --To be continued--"))
     closemessage
-    
-    msgbox(format("Strength: Now that class is over we should go hangout at the treehouse!"))
+    clearflag(FLAG_TEMP_14)
+    applymovement(LOCALID_SHADOW, HiddenVillage_Movement_ShadowFlyOver)
+    playse(SE_M_FLY)
+    //pokemon flies over
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+    playse(SE_PIN)
+    waitmovement()
+    applymovement(LOCALID_FRIEND_BRAIN, Common_Movement_ExclamationMark)
+    playse(SE_PIN)
+    waitmovement()
+    applymovement(LOCALID_FRIEND_HEART, Common_Movement_ExclamationMark)
+    playse(SE_PIN)
+    waitmovement()
+    applymovement(LOCALID_FRIEND_STRENGTH, Common_Movement_ExclamationMark)
+    playse(SE_PIN)
+    waitmovement()
+    msgbox(format("Strength: What was that?!\pBrain: Was that a Pok\emon?!\pHEART: There's no way that was a Pok\emon! Right Elder?!\p"))
+    closemessage
+    setweather(WEATHER_RAIN)
+    doweather
+    msgbox(format("Elder: Alright everybody, that's enough for today... We can finish this lesson tomorrow!\pSTENGTH: Now that class is over let's go to the treehouse!"))
+    setflag(FLAG_TEMP_14)
     closemessage
     
     // 1. Group A (The Lab Originals) walks south, just out of view
@@ -225,8 +250,8 @@ script HiddenVillage_EventScript_LateTriggerMain {
 script HiddenVillage_EventScript_DefaultText {
     lock
     faceplayer
-    msgbox(format("Hi {PLAYER}!"))
-    setvar(VAR_HIDDEN_VILLAGE_STATE, 2)
+        buffernumberstring(STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE) 
+        msgbox(format("DEBUG_MISSING TEXT\nState ({STR_VAR_1})"))
     release
     end
 }
@@ -425,4 +450,8 @@ movement Movement_BrainReappear {
     walk_up * 3
     walk_right * 6
     walk_slow_up
+}
+
+movement HiddenVillage_Movement_ShadowFlyOver {
+    walk_fast_down * 15
 }

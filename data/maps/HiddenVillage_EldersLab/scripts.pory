@@ -28,23 +28,29 @@ script HiddenVillage_EldersLab_EventScript_IntroCutscene {
     lockall
     msgbox(format("Ah! {PLAYER}!"))
     closemessage
-
+    applymovement(LOCALID_ELDER, Common_Movement_FaceDown)
+    
+    //Spawns Camera and Moves it to the Elder's Postition
     special(SpawnCameraObject)
     applymovement(OBJ_EVENT_ID_CAMERA, HiddenVillage_EldersLab_Movement_CameraMovementOne)
     waitmovement(0)
     
+    //Elder walks down towards the player, with the camera following him.
     applymovement(OBJ_EVENT_ID_CAMERA, HiddenVillage_EldersLab_Movement_CameraPansToPlayer)
     applymovement(LOCALID_ELDER, HiddenVillage_EldersLab_Movement_ElderWalksToPlayer)
     waitmovement(0)
     
+    //Despawns the camera so it's reattached to the player
     special(RemoveCameraObject)
     
     msgbox(format("You're finally here, everybody is already in the backyard waiting for us. Let's head out."))
     closemessage
     
+    //Player moves to the right
     applymovement(OBJ_EVENT_ID_PLAYER, HiddenVillage_EldersLab_Movement_PlayerMovesRight)
     waitmovement(0)
     
+    //Elder Exits the lab, hides him until VAR_HIDDEN_VILLAGE_STATE is higher than 1
     applymovement(LOCALID_ELDER, HiddenVillage_EldersLab_Movement_ElderExitsLab)
     waitmovement(0)
     applymovement(LOCALID_ELDER, HiddenVillage_EldersLab_Movement_ElderExitsLab)
@@ -71,7 +77,8 @@ script HiddenVillage_EldersLab_EventScript_Elder {
         case 3:
             msgbox(format("The village is relying on you. Have you checked the garden yet?"))
         default:
-            msgbox(format("The village is relying on you. Have you checked the garden yet?"))
+            buffernumberstring(STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE) 
+            msgbox(format("DEBUG_MISSING TEXT\nState ({STR_VAR_1})"))
     }
     
     closemessage
