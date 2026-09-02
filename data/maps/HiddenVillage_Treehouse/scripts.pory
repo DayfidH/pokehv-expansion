@@ -14,7 +14,7 @@ script HiddenVillage_Treehouse_EventScript_Cutscene {
     
     // I added format() and \p (paragraph breaks) here so the player 
     // has to press 'A' between each person speaking.
-    msgbox(format("Heart: Today was so fun! Taming Pokémon looks so easy now thanks to the Elder!\pBrain: It looks easy but I guarantee you it's not...\pStrength: Time to go home!"))
+    msgbox(format("Heart: Today was so fun! Taming Pokémon looks so easy now thanks to the Elder!\pBrain: It looks easy but I guarantee you it's not...\p...\p...\p...\pThey chatted for hours until the rain stopped...\pStrength: Time to go home!"))
     closemessage
     
     // Changing this to 4 prevents the frame table from looping the cutscene

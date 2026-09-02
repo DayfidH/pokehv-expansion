@@ -132,6 +132,11 @@ HiddenVillage_Treehouse_EventScript_Cutscene_Text_0:
 	.string "the Elder!\p"
 	.string "Brain: It looks easy but I guarantee\n"
 	.string "you it's not...\p"
+	.string "...\p"
+	.string "...\p"
+	.string "...\p"
+	.string "They chatted for hours until the rain\n"
+	.string "stopped...\p"
 	.string "Strength: Time to go home!$"
 
 HiddenVillage_Treehouse_EventScript_DefaultText_Text_0:

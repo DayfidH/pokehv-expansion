@@ -1,13 +1,16 @@
+const LOCALID_DAD = 1
 mapscripts HiddenVillage_PlayerHouse_MapScripts {
 }
 
 script HiddenVillage_PlayerHouse_EventScript_PlayersDad {
+    lock
+    faceplayer
     switch(var(VAR_HIDDEN_VILLAGE_STATE)) {
         case 0: 
-            if (!flag(FLAG_RECEIVED_RUNNING_SHOES)) { 
+            if (!flag(FLAG_SYS_B_DASH)) { 
                 msgbox(format("Good morning {PLAYER}! I found these running shoes tucked away in a box in my bedroom... You can have them, they're your size!"))
                 closemessage
-                setflag(FLAG_RECEIVED_RUNNING_SHOES)
+                setflag(FLAG_SYS_B_DASH)
             } else {
                 msgbox(format("You better be off or you'll be late... Good thing I gave you those running shoes!"))
                 closemessage
@@ -16,4 +19,7 @@ script HiddenVillage_PlayerHouse_EventScript_PlayersDad {
             buffernumberstring(STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE) 
             msgbox(format("DEBUG_MISSING TEXT\nState ({STR_VAR_1})")) 
     }
+    applymovement(LOCALID_DAD, Common_Movement_FaceRight)
+    release
+    end
 }

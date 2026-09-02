@@ -9,14 +9,14 @@ HiddenVillage_EventScript_PlayersBedMasterTrigger::
 	switch VAR_HIDDEN_VILLAGE_STATE
 # 7 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
 	case 4, HiddenVillage_EventScript_PlayersBedMasterTrigger_3
-# 26 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
+# 29 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
 	msgbox HiddenVillage_EventScript_PlayersBedMasterTrigger_Text_2
-# 27 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
+# 30 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
 	closemessage
-# 28 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
+# 31 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, HiddenVillage_PlayersHouse2F_Movement_ExitBed
 HiddenVillage_EventScript_PlayersBedMasterTrigger_1:
-# 31 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
+# 34 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
 	releaseall
 	end
 
@@ -46,21 +46,25 @@ HiddenVillage_EventScript_PlayersBedMasterTrigger_3:
 # 19 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
 	fadescreen 1
 # 20 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
-	delay 180
+	fadeoutbgm 1
 # 21 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
-	msgbox HiddenVillage_EventScript_PlayersBedMasterTrigger_Text_1
+	delay 180
 # 22 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
-	closemessage
+	msgbox HiddenVillage_EventScript_PlayersBedMasterTrigger_Text_1
 # 23 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
-	fadescreen 0
+	closemessage
 # 24 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
+	fadescreen 0
+# 25 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
+	fadedefaultbgm
+# 26 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
 	setvar VAR_HIDDEN_VILLAGE_STATE, 5
 	goto HiddenVillage_EventScript_PlayersBedMasterTrigger_1
 
 
-# 35 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
+# 38 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
 HiddenVillage_PlayersHouse2F_Movement_ExitBed:
-# 36 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
+# 39 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
 	walk_right
 	step_end
 
@@ -70,9 +74,9 @@ HiddenVillage_EventScript_PlayersBedMasterTrigger_Text_0:
 	.string "to sleep...$"
 
 HiddenVillage_EventScript_PlayersBedMasterTrigger_Text_1:
-# 21 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
+# 22 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
 	.string "--DREAM SEQUENCE 2--$"
 
 HiddenVillage_EventScript_PlayersBedMasterTrigger_Text_2:
-# 26 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
+# 29 "data/maps/HiddenVillage_PlayersHouse2F/scripts.pory"
 	.string "It's still too early to go to bed...$"

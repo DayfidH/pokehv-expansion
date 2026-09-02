@@ -80,7 +80,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "HiddenVillage_EventScript_DefaultText",
       "flag": "FLAG_TEMP_11"
     },
     {
@@ -149,7 +149,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "HiddenVillage_EventScript_DefaultText",
       "flag": "0"
     },
     {
@@ -164,6 +164,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_TEMP_14"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ENGINEER_HNS",
+      "x": 8,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HiddenVillage_EventScript_DefaultText",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN_HNS",
+      "x": 24,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HiddenVillage_EventScript_DefaultText",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -187,6 +213,41 @@
       "elevation": 0,
       "dest_map": "MAP_HIDDEN_VILLAGE_TREEHOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 21,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_VILLAGE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 5,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_VILLAGE",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 14,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_VILLAGE",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 24,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_VILLAGE",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_VILLAGE",
+      "dest_warp_id": "7"
     }
   ],
   "coord_events": [
@@ -238,11 +299,11 @@
     {
       "type": "trigger",
       "x": 16,
-      "y": 5,
+      "y": 8,
       "elevation": 0,
       "var": "VAR_HIDDEN_VILLAGE_STATE",
-      "var_value": "0",
-      "script": "NULL"
+      "var_value": "2",
+      "script": "HiddenVillage_EventScript_LadyTrigger"
     },
     {
       "type": "trigger",

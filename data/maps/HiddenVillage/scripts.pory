@@ -2,6 +2,7 @@ const LOCALID_LADY = 1
 const LOCALID_FRIEND_BRAIN = 2
 const LOCALID_FRIEND_HEART = 3
 const LOCALID_FRIEND_STRENGTH = 4
+const LOCALID_ELDER = 5
 const LOCALID_INTRO_HEART = 6
 const LOCALID_TREEHOUSE_STRENGTH = 7
 const LOCALID_TREEHOUSE_HEART = 8
@@ -27,23 +28,24 @@ script HiddenVillage_OnTransition {
     if (flag(FLAG_HIDDEN_VILLAGE_HEART_INTRO_COMPLETE)) {
         setvar(VAR_TEMP_0, 1)
     }
-        setflag(FLAG_TEMP_14)
     // 2. Map Layout Management based on story state
     switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
         //Beginning of First Day
         case 0:
             setflag(FLAG_TEMP_12) // Hide Treehouse Heart/Brain
             setflag(FLAG_TEMP_13) // Hide Treehouse Strength
+            setflag(FLAG_TEMP_14) // Hide Shadow
         //After talking to Elder in his Lab    
         case 1: 
             setobjectxyperm(LOCALID_LADY, 14, 14)
             setobjectmovementtype(LOCALID_LADY, MOVEMENT_TYPE_LOOK_AROUND)
             setflag(FLAG_TEMP_12) 
-            setflag(FLAG_TEMP_13) 
-
+            setflag(FLAG_TEMP_13)
+            setflag(FLAG_TEMP_14) 
         //After First Class
         case 2: 
-            setobjectxyperm(LOCALID_LADY, 17, 5)
+            setflag(FLAG_TEMP_14)
+            setobjectxyperm(LOCALID_LADY, 15, 8)
             setobjectmovementtype(LOCALID_LADY, MOVEMENT_TYPE_FACE_DOWN)
             
             // Hide the original Lab group
@@ -51,26 +53,27 @@ script HiddenVillage_OnTransition {
             
             // Hide Treehouse Heart/Brain
             setflag(FLAG_TEMP_12)
-            setflag(FLAG_TEMP_13)
             
             // Update Treehouse Strength's location, and do NOT set FLAG_TEMP_13 so he stays visible
             setobjectxyperm(LOCALID_TREEHOUSE_STRENGTH, 11, 11)
             setobjectmovementtype(LOCALID_TREEHOUSE_STRENGTH, MOVEMENT_TYPE_FACE_LEFT)
+            setweather(WEATHER_RAIN)
+            doweather
             
         //After Entering Tree House
         case 3:
             setflag(FLAG_TEMP_11) 
             setflag(FLAG_TEMP_12)
             setflag(FLAG_TEMP_13)
-            
+            setflag(FLAG_TEMP_14)
             // In State 2, Strength climbs the vine and is removed. 
             // Therefore, he MUST be hidden when the map reloads in State 3.
-            setflag(FLAG_TEMP_13)
         //After Leaving Treehouse to go home for bed
         case 4:
             setflag(FLAG_TEMP_11)
             setflag(FLAG_TEMP_12)
             setflag(FLAG_TEMP_13)
+            setflag(FLAG_TEMP_14) // Hides the shadow during State 4
     }
     end
 }
@@ -88,7 +91,7 @@ script HiddenVillage_EventScript_FriendHeart_Intro {
     waitmovement(0)
     applymovement(LOCALID_INTRO_HEART, Common_Movement_FaceUp)
     
-    msgbox(format("Heart: Good morning {PLAYER}! I was wondering if you were going to wake up today. Everybody else is waiting in the backyard, go and see the Elder in his lab and let him know you're ready!"))
+    msgbox(format("Heart: Good morning {PLAYER}! I was wondering if you were going to wake up today.\pEverybody else is waiting in the backyard, go and see the Elder in his lab and let him know you're ready!"))
     closemessage
     
     applymovement(LOCALID_INTRO_HEART, Heart_RunToBackyard)
@@ -132,9 +135,10 @@ script HiddenVillage_EventScript_ElderClass {
     applymovement(LOCALID_FRIEND_BRAIN, HiddenVillage_Movement_BrainToClass)
     waitmovement(0)
     
-    msgbox(format("Elder: Welcome everybody, today we're going to be learning about taming Pokémon. Taming Pokemon is the act of forming trust with a Pok\emon. Both sides need to trust each other. --To be continued--"))
+    msgbox(format("Elder: Welcome everybody, today we're going to be learning about taming Pokémon.\pTaming Pokemon is the act of forming trust with a Pok\emon. Both sides need to trust each other.\p--To be continued--"))
     closemessage
     clearflag(FLAG_TEMP_14)
+    addobject(LOCALID_SHADOW) // Renders the shadow on screen
     applymovement(LOCALID_SHADOW, HiddenVillage_Movement_ShadowFlyOver)
     playse(SE_M_FLY)
     //pokemon flies over
@@ -154,8 +158,9 @@ script HiddenVillage_EventScript_ElderClass {
     closemessage
     setweather(WEATHER_RAIN)
     doweather
-    msgbox(format("Elder: Alright everybody, that's enough for today... We can finish this lesson tomorrow!\pSTENGTH: Now that class is over let's go to the treehouse!"))
+    msgbox(format("Elder: Alright everybody, that's enough for today... \pWe can finish this lesson tomorrow!\pSTENGTH: Now that class is over let's go to the treehouse!"))
     setflag(FLAG_TEMP_14)
+    removeobject(LOCALID_SHADOW)
     closemessage
     
     // 1. Group A (The Lab Originals) walks south, just out of view
@@ -163,11 +168,16 @@ script HiddenVillage_EventScript_ElderClass {
     applymovement(LOCALID_FRIEND_HEART, Movement_HeartWalkOff)
     applymovement(LOCALID_FRIEND_BRAIN, Movement_BrainWalkOff)
     waitmovement(0)
+
+    applymovement(LOCALID_LADY, Movement_WalkToLabGrass)
+    applymovement(LOCALID_ELDER, Movement_HeadToLab)
+    waitmovement(0)
     
     // 2. Hide Group A forever
     removeobject(LOCALID_FRIEND_STRENGTH)
     removeobject(LOCALID_FRIEND_HEART)
     removeobject(LOCALID_FRIEND_BRAIN)
+    removeobject(LOCALID_ELDER)
     setflag(FLAG_TEMP_11) 
     
     // 3. Spawn Group B (The Doubles) off-screen by the treehouse
@@ -263,9 +273,6 @@ script HiddenVillage_EventScript_FriendHeart {
         case 1:
             msgbox(format("Heart: It took you long enough! Hey... are you okay?"))
             closemessage
-        case 3: 
-            msgbox(format("Heart: We're currently in state 3..."))
-            closemessage
         default:
             buffernumberstring(STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE) 
             msgbox(format("DEBUG_MISSING TEXT\nState ({STR_VAR_1})"))
@@ -282,7 +289,7 @@ script HiddenVillage_EventScript_FriendStrength {
             msgbox(format("Strength: You're finally here! We've been waiting for you!"))
             closemessage
         case 2: 
-            msgbox(format("Strength: Hey {PLAYER}! Do you remember how to get into the treehouse? Just climb the vine like this!"))
+            msgbox(format("Strength: Hey {PLAYER}! Do you remember how to get into the treehouse?\pJust climb the vine like this!"))
             closemessage
 
             applymovement(LOCALID_TREEHOUSE_STRENGTH, Movement_ClimbTheVine)
@@ -299,6 +306,7 @@ script HiddenVillage_EventScript_FriendStrength {
     end
 }
 
+// Interacting directly with the Lady
 script HiddenVillage_EventScript_Lady {
     lock
     faceplayer
@@ -315,39 +323,86 @@ script HiddenVillage_EventScript_Lady {
             closemessage
             
         case 2: 
-            //Need to move her to the north of the labbackyard
+            // DIRECT INTERACTION CUTSCENE
             msgbox(format("H-hey! There's nothing past here... Weren't you going to see your friends at the Treehouse? It's right over there!"))
             closemessage
             
             special(SpawnCameraObject)
-            applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraPanLeftAndDown)
+            applymovement(LOCALID_LADY, Common_Movement_FaceLeft) // Change as needed
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft) // Change as needed
+            applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraPanToTreehouse_FromLady)
             waitmovement(0)
             
             msgbox(format("You can climb up it using the vine!"))
             closemessage
             
-            applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraPanRightAndUp)
+            faceplayer
+            applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraReturnFromTreehouse_FromLady)
             waitmovement(0)
             special(RemoveCameraObject)
             
-            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
-            waitmovement(0)
-
         case 3: 
             msgbox(format("It's pretty late... Isn't it past your bedtime?"))
             closemessage
         default:
             buffernumberstring(STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE) 
             msgbox(format("DEBUG_MISSING TEXT\nState ({STR_VAR_1})"))
+            closemessage
     }
     release
     end
 }
 
+// --------------------------------------------------
+// Lady Treehouse Guard Triggers
+// --------------------------------------------------
+
+// Place this on the map tile trigger in front of her
+script HiddenVillage_EventScript_LadyTrigger {
+    lockall
+    applymovement(LOCALID_LADY, Common_Movement_ExclamationMark)
+    playse(SE_PIN)
+    waitmovement(0)
+    
+    // Face each other (Assumes player stepped UP into the trigger)
+    applymovement(LOCALID_LADY, Common_Movement_FaceRight)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+    waitmovement(0)
+    
+    // TRIGGER TILE CUTSCENE
+    msgbox(format("H-hey! There's nothing past here... Weren't you going to see your friends at the Treehouse? It's right over there!"))
+    closemessage
+    
+    special(SpawnCameraObject)
+    // Customize where they look during the trigger pan
+    applymovement(LOCALID_LADY, Common_Movement_FaceLeft) 
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft) 
+    applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraPanToTreehouse_FromTrigger)
+    waitmovement(0)
+    
+    msgbox(format("You can climb up it using the vine!"))
+    closemessage
+    
+    // Return to facing each other
+    applymovement(LOCALID_LADY, Common_Movement_FaceRight)
+
+    applymovement(OBJ_EVENT_ID_CAMERA, Movement_CameraReturnFromTreehouse_FromTrigger)
+    waitmovement(0)
+    special(RemoveCameraObject)
+    
+    // Push the player back
+    applymovement(LOCALID_LADY, Common_Movement_FaceDown)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown)
+    waitmovement(0)
+    
+    releaseall
+    end
+}
 
 // --------------------------------------------------
 // Movements
 // --------------------------------------------------
+
 movement Heart_Movement_TowardsPlayer {
     walk_left * 5
 }
@@ -363,14 +418,26 @@ movement Movement_ClimbTheVine {
     walk_slow_up
 }
 
-movement Movement_CameraPanLeftAndDown {
-    walk_left * 4
-    walk_down * 4
+// --- Camera movements for talking directly to the Lady ---
+movement Movement_CameraPanToTreehouse_FromLady {
+    walk_left * 2
 }
 
-movement Movement_CameraPanRightAndUp {
-    walk_up * 4
-    walk_right * 4
+movement Movement_CameraReturnFromTreehouse_FromLady {
+    walk_right * 2
+}
+
+// --- Camera movements for stepping on the Trigger ---
+movement Movement_CameraPanToTreehouse_FromTrigger {
+    // Example: Trigger might be one tile lower, so you move left and up
+    walk_left * 3
+    walk_down
+}
+
+movement Movement_CameraReturnFromTreehouse_FromTrigger {
+    // Must be the exact reverse of the PanToTreehouse_FromTrigger
+    walk_up
+    walk_right * 3
 }
 
 movement HiddenVillage_Movement_StrengthToClass {
@@ -454,4 +521,20 @@ movement Movement_BrainReappear {
 
 movement HiddenVillage_Movement_ShadowFlyOver {
     walk_fast_down * 15
+}
+
+movement Movement_WalkToLabGrass {
+    walk_right
+    walk_up * 6
+    face_down
+}
+
+movement Movement_HeadToLab {
+    walk_down
+    face_left
+    delay_16 * 2
+    walk_left
+    walk_down * 5
+    walk_left * 2
+    walk_down * 3
 }

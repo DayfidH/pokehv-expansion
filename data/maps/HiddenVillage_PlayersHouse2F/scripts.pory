@@ -17,11 +17,14 @@ script HiddenVillage_EventScript_PlayersBedMasterTrigger {
             fadescreen(0)
             delay(30)
             fadescreen(1)
+            fadeoutbgm(1)
             delay(180)
             msgbox(format("--DREAM SEQUENCE 2--"))
             closemessage
             fadescreen(0)
+            fadedefaultbgm
             setvar(VAR_HIDDEN_VILLAGE_STATE, 5)
+
         default:
             msgbox(format("It's still too early to go to bed..."))
             closemessage
