@@ -1,6 +1,7 @@
 {
   "group_order": [
     "gMapGroup_TownsAndRoutes",
+    "gMapGroup_IndoorHiddenFarms",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -78,6 +79,7 @@
   ],
   "gMapGroup_TownsAndRoutes": [
     "HiddenVillage",
+    "HiddenFarms",
     "HiddenForest",
     "PetalburgCity",
     "SlateportCity",
@@ -136,6 +138,9 @@
     "Underwater_Route129",
     "Underwater_Route105",
     "Underwater_Route125"
+  ],
+  "gMapGroup_IndoorHiddenFarms": [
+    "HiddenFarms_Barn"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

@@ -9367,10 +9367,10 @@
     {
       "id": "LAYOUT_HIDDEN_FOREST",
       "name": "HiddenForest_Layout",
-      "width": 42,
+      "width": 40,
       "height": 40,
       "primary_tileset": "gTileset_Johto_General_Hns",
-      "secondary_tileset": "gTileset_ViridianForest_Hns",
+      "secondary_tileset": "gTileset_IlexForest_Hns",
       "border_filepath": "data/layouts/HiddenForest/border.bin",
       "blockdata_filepath": "data/layouts/HiddenForest/map.bin"
     },
@@ -9393,6 +9393,26 @@
       "secondary_tileset": "gTileset_PlayersHouse_Hns",
       "border_filepath": "data/layouts/HiddenVillage_PlayersHouse2F/border.bin",
       "blockdata_filepath": "data/layouts/HiddenVillage_PlayersHouse2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_HIDDEN_FARMS",
+      "name": "HiddenFarms_Layout",
+      "width": 28,
+      "height": 25,
+      "primary_tileset": "gTileset_Johto_General_Hns",
+      "secondary_tileset": "gTileset_Route38_Farmland_Hns",
+      "border_filepath": "data/layouts/HiddenFarms/border.bin",
+      "blockdata_filepath": "data/layouts/HiddenFarms/map.bin"
+    },
+    {
+      "id": "LAYOUT_HIDDEN_FARMS_BARN",
+      "name": "HiddenFarms_Barn_Layout",
+      "width": 17,
+      "height": 22,
+      "primary_tileset": "gTileset_Johto_Building_Hns",
+      "secondary_tileset": "gTileset_Barn_Hns",
+      "border_filepath": "data/layouts/HiddenFarms_Barn/border.bin",
+      "blockdata_filepath": "data/layouts/HiddenFarms_Barn/map.bin"
     }
   ]
 }
