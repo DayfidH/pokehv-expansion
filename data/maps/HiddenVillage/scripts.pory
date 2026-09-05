@@ -538,3 +538,30 @@ movement Movement_HeadToLab {
     walk_left * 2
     walk_down * 3
 }
+
+//Custom Stuff for HappyBirthday branch
+
+script EventScript_HiddenVillageBirthdayWarp {
+    lockall
+    
+    # Open the door (Replace 15 and 20 with the door tile's X/Y)
+    opendoor(4, 25)
+    waitdooranim
+    
+    # Force player inside
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_WalkIntoDoor)
+    waitmovement(0)
+    
+    # Warp directly to the custom birthday edition map
+    warp(MAP_HIDDEN_VILLAGE_PLAYER_HOUSE_PARTY, 3, 8)
+    waitstate
+    
+    releaseall
+    end
+}
+
+movement Movement_WalkIntoDoor {
+    walk_up
+    set_invisible
+    step_end
+}

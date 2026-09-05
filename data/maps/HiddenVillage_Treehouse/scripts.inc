@@ -137,7 +137,9 @@ HiddenVillage_Treehouse_EventScript_Cutscene_Text_0:
 	.string "...\p"
 	.string "They chatted for hours until the rain\n"
 	.string "stopped...\p"
-	.string "Strength: Time to go home!$"
+	.string "Strength: Hey! We forgot we all had\n"
+	.string "something to do! We gotta go! Cya\l"
+	.string "{PLAYER}$"
 
 HiddenVillage_Treehouse_EventScript_DefaultText_Text_0:
 # 53 "data/maps/HiddenVillage_Treehouse/scripts.pory"

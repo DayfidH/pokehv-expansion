@@ -9350,7 +9350,7 @@
       "width": 11,
       "height": 11,
       "primary_tileset": "gTileset_Johto_Building_Hns",
-      "secondary_tileset": "gTileset_NewBarkTown_Hns",
+      "secondary_tileset": "gTileset_PlayersHouse_Hns",
       "border_filepath": "data/layouts/HiddenVillage_EldersLab/border.bin",
       "blockdata_filepath": "data/layouts/HiddenVillage_EldersLab/map.bin"
     },
@@ -9397,7 +9397,7 @@
     {
       "id": "LAYOUT_HIDDEN_FARMS",
       "name": "HiddenFarms_Layout",
-      "width": 28,
+      "width": 30,
       "height": 25,
       "primary_tileset": "gTileset_Johto_General_Hns",
       "secondary_tileset": "gTileset_Route38_Farmland_Hns",
@@ -9413,6 +9413,16 @@
       "secondary_tileset": "gTileset_Barn_Hns",
       "border_filepath": "data/layouts/HiddenFarms_Barn/border.bin",
       "blockdata_filepath": "data/layouts/HiddenFarms_Barn/map.bin"
+    },
+    {
+      "id": "LAYOUT_HIDDEN_VILLAGE_PLAYER_HOUSE_PARTY",
+      "name": "HiddenVillage_PlayerHouse_Party_Layout",
+      "width": 12,
+      "height": 10,
+      "primary_tileset": "gTileset_Johto_Building_Hns",
+      "secondary_tileset": "gTileset_PlayersHouse_Hns",
+      "border_filepath": "data/layouts/HiddenVillage_PlayerHouse_Party/border.bin",
+      "blockdata_filepath": "data/layouts/HiddenVillage_PlayerHouse_Party/map.bin"
     }
   ]
 }

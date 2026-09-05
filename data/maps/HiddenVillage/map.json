@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_HIDDEN_FARMS",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
       "map": "MAP_HIDDEN_FOREST",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_HIDDEN_FARMS",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -333,6 +333,15 @@
       "var": "VAR_HIDDEN_VILLAGE_STATE",
       "var_value": "1",
       "script": "HiddenVillage_EventScript_ElderClass_Right"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 26,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_VILLAGE_STATE",
+      "var_value": "4",
+      "script": "EventScript_HiddenVillageBirthdayWarp"
     }
   ],
   "bg_events": []

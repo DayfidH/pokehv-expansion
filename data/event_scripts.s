@@ -1756,3 +1756,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/HiddenFarms/scripts.inc"
 
 	.include "data/maps/HiddenFarms_Barn/scripts.inc"
+
+	.include "data/maps/HiddenVillage_PlayerHouse_Party/scripts.inc"

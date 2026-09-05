@@ -1,0 +1,104 @@
+
+mapscripts HiddenVillage_PlayerHouse_Party_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        // Sets the room to be pitch black before the map even loads
+        if (var(VAR_TEMP_0) == 0) {
+            setflashlevel(8) // 4 is maximum darkness
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        // Triggers the cutscene immediately after the map fades in
+        VAR_TEMP_0, 0: Event_BirthdaySurprise
+    ]
+}
+
+script Event_StrengthBirthday {
+    lock
+    faceplayer
+    msgbox(format("Strength: Happy Birthday!"))
+    closemessage
+    release
+}
+
+script Event_HeartBirthday {
+    lock
+    faceplayer
+    msgbox(format("Heart: It's your birthday! um yes queen skinny legend versace boots the house down slay queen hunty mama and oop daddy work charli xcx snatch my wig! HAPPY BIRTHDAY DIVA!!"))
+    closemessage
+    release
+}
+
+script Event_BrainBirthday {
+    lock
+    faceplayer
+    msgbox(format("Brain: Happy Birthday! Did you know your birthday only happens once a year?"))
+    closemessage
+    release
+}
+
+script Event_DavidBirthday {
+    lock
+    faceplayer
+    msgbox(format("David: Happy Birthday Bestie! I hope you liked the surprise me and all our friends from Hidden Village put together for you! I hope you had the best birthday ever and another great year on this floating rock we call Earth!"))
+    closemessage
+    release
+}
+
+script Event_ElderBirthday {
+    lock
+    faceplayer
+    msgbox(format("Elder: Ah {PLAYER}... Happy Birthday!"))
+    closemessage
+    release
+}
+
+script Event_LadyBirthday {
+    lock
+    faceplayer
+    msgbox(format("Lady: Happy Birthday {PLAYER}! Now just because it's your birthday, doesn't mean you can just wonder off through the Elder's backyard..."))
+    closemessage
+    release
+}
+script Event_BirthdaySurprise {
+    lockall
+
+    // 1. Initial Dialogue
+    msgbox(format("Morgan: Huh... Why are the lights off?"), MSGBOX_DEFAULT)
+    closemessage
+
+    // 2. Player Movement
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_LightSwitch)
+    waitmovement(0) // 0 targets the player
+
+    // 3. Flash Effect (Lighting up the house)
+    playse(SE_SWITCH) // Optional sound effect (Reflect sounds like a sharp flash)
+    animateflash(0)      // Animates the light expanding to full brightness
+    setflashlevel(0)     // Updates the permanent map state so it stays bright
+    
+    // 4. Surprise Dialogue
+    // Using \n creates the exact new line you requested
+    msgbox("Everyone: SURPRISE!!!\nHappy Birthday Morgan!", MSGBOX_DEFAULT)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_Surprised)
+    waitmovement(0)
+    // 5. End Event
+    setvar(VAR_TEMP_0, 1) // Set a variable so the event doesn't loop when re-entering the map
+    
+    releaseall
+    end
+}
+
+movement Movement_LightSwitch {
+    walk_right
+    face_down
+    delay_16 // Change to walk_down, walk_left, or walk_right depending on your door's direction
+    step_end
+}
+
+movement Movement_Surprised {
+    jump_in_place_up
+    walk_up
+    walk_left
+    walk_up
+    emote_exclamation_mark
+}

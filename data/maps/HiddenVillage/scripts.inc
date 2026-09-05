@@ -954,6 +954,35 @@ Movement_HeadToLab:
 	walk_down
 	step_end
 
+EventScript_HiddenVillageBirthdayWarp::
+# 545 "data/maps/HiddenVillage/scripts.pory"
+	lockall
+# 548 "data/maps/HiddenVillage/scripts.pory"
+	opendoor 4, 25
+# 549 "data/maps/HiddenVillage/scripts.pory"
+	waitdooranim
+# 552 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_WalkIntoDoor
+# 553 "data/maps/HiddenVillage/scripts.pory"
+	waitmovement 0
+# 556 "data/maps/HiddenVillage/scripts.pory"
+	warp MAP_HIDDEN_VILLAGE_PLAYER_HOUSE_PARTY, 3, 8
+# 557 "data/maps/HiddenVillage/scripts.pory"
+	waitstate
+# 559 "data/maps/HiddenVillage/scripts.pory"
+	releaseall
+	end
+
+
+# 563 "data/maps/HiddenVillage/scripts.pory"
+Movement_WalkIntoDoor:
+# 564 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 565 "data/maps/HiddenVillage/scripts.pory"
+	set_invisible
+# 566 "data/maps/HiddenVillage/scripts.pory"
+	step_end
+
 HiddenVillage_EventScript_FriendHeart_Intro_Text_0:
 # 94 "data/maps/HiddenVillage/scripts.pory"
 	.string "Heart: Good morning {PLAYER}! I was\n"
