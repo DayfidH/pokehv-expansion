@@ -16,8 +16,20 @@ const LOCALID_SHADOW = 11
 mapscripts HiddenVillage_MapScripts {
     MAP_SCRIPT_ON_TRANSITION: HiddenVillage_OnTransition
     MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_TEMP_0, 0: HiddenVillage_EventScript_FriendHeart_Intro
+        VAR_TEMP_1, 0: HiddenVillage_EventScript_FriendHeart_Intro
     ]
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_TEMP_2, 0: HiddenVillage_EventScript_FaceRight
+    ]
+}
+
+script HiddenVillage_EventScript_FaceRight {
+    getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+    
+    // If the player lands on the left edge (X=0) at the farm warp coords (Y=14 or 15)
+    if (var(VAR_TEMP_3) == 0 && (var(VAR_TEMP_4) == 14 || var(VAR_TEMP_4) == 15)) {
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    }
 }
 
 // --------------------------------------------------
@@ -26,7 +38,7 @@ mapscripts HiddenVillage_MapScripts {
 script HiddenVillage_OnTransition {
     // 1. Initial Morning Intro logic
     if (flag(FLAG_HIDDEN_VILLAGE_HEART_INTRO_COMPLETE)) {
-        setvar(VAR_TEMP_0, 1)
+        setvar(VAR_TEMP_1, 1)
     }
     // 2. Map Layout Management based on story state
     switch (var(VAR_HIDDEN_VILLAGE_STATE)) {
@@ -78,6 +90,18 @@ script HiddenVillage_OnTransition {
     end
 }
 
+script HiddenVillage_EventScript_WarpToFarmsTop {
+    warp(MAP_HIDDEN_FARMS, 27, 14)
+    waitstate
+    end
+}
+
+script HiddenVillage_EventScript_WarpToFarmsBottom {
+    warp(MAP_HIDDEN_FARMS, 27, 15)
+    waitstate
+    end
+}
+
 // --------------------------------------------------
 // Intro Cutscene
 // --------------------------------------------------
@@ -99,7 +123,7 @@ script HiddenVillage_EventScript_FriendHeart_Intro {
     removeobject(LOCALID_INTRO_HEART) 
     
     setflag(FLAG_HIDDEN_VILLAGE_HEART_INTRO_COMPLETE) 
-    setvar(VAR_TEMP_0, 1) 
+    setvar(VAR_TEMP_1, 1) 
     
     releaseall
     end
@@ -538,3 +562,4 @@ movement Movement_HeadToLab {
     walk_left * 2
     walk_down * 3
 }
+

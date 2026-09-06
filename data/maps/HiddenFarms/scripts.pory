@@ -1,0 +1,28 @@
+mapscripts HiddenFarms_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE [
+        VAR_TEMP_1, 0: HiddenFarms_EventScript_FaceLeft
+    ]
+}
+
+script HiddenFarms_EventScript_FaceLeft {
+    getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+    
+    // Replace X with the X coordinate the player lands on in FARMS.
+    // Replace 14 and 15 with the actual Y coordinates they land on in FARMS.
+    if (var(VAR_TEMP_2) == 27 && (var(VAR_TEMP_3) == 14 || var(VAR_TEMP_3) == 15)) {
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    }
+}
+
+// These run when the player steps on the triggers in Hidden FARMS
+script HiddenFarms_EventScript_WarpToVillageTop {
+    warp(MAP_HIDDEN_VILLAGE, 0, 14)
+    waitstate
+    end
+}
+
+script HiddenFarms_EventScript_WarpToVillageBottom {
+    warp(MAP_HIDDEN_VILLAGE, 0, 15)
+    waitstate
+    end
+}
