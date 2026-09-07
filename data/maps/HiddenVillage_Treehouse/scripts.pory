@@ -50,7 +50,7 @@ script HiddenVillage_Treehouse_EventScript_Cutscene {
 script HiddenVillage_Treehouse_EventScript_DefaultText {
     lock
     faceplayer
-    msgbox(format("Hi {PLAYER}!"))
+    msgbox(format("We're not supposed to be here... Hehe... Ignore us. David forgot to hide us!"))
     release
     end
 }

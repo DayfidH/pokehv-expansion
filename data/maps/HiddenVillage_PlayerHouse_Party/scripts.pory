@@ -15,10 +15,19 @@ mapscripts HiddenVillage_PlayerHouse_Party_MapScripts {
 script Event_StrengthBirthday {
     lock
     faceplayer
-    msgbox(format("Strength: Happy Birthday!"))
+    msgbox(format("Strength: Haha! I bet you thought we would forget about your birthday... Happy Birthday!"))
     closemessage
     release
 }
+
+script Event_BiffBirthday {
+    lock
+    showmonpic(SPECIES_BULBASAUR, 10, 3)
+    msgbox(format("Biffie: Arf arf! (Happy Birthday!)"))
+    hidemonpic
+    release
+}
+
 
 script Event_HeartBirthday {
     lock
@@ -39,7 +48,7 @@ script Event_BrainBirthday {
 script Event_DavidBirthday {
     lock
     faceplayer
-    msgbox(format("David: Happy Birthday Bestie! I hope you liked the surprise me and all our friends from Hidden Village put together for you! I hope you had the best birthday ever and another great year on this floating rock we call Earth!"))
+    msgbox(format("David: Happy Birthday Bestie! I hope you liked the surprise me and all our friends from Hidden Village put together for you! I hope you had the best birthday ever and have the best year of your life babes! Sending you lots of love!"))
     closemessage
     release
 }
@@ -47,7 +56,7 @@ script Event_DavidBirthday {
 script Event_ElderBirthday {
     lock
     faceplayer
-    msgbox(format("Elder: Ah {PLAYER}... Happy Birthday!"))
+    msgbox(format("Elder: Ah {PLAYER}... Happy Birthday! By the way... Have you heard that song Butterflies by m0m0? I can't find it on streaming anywhere!\p...\pWait what? {PLAYER}, you're m0m0?! RELEASE BUTTERFLIES ON STREAMING THIS INSTANT!"))
     closemessage
     release
 }
@@ -55,7 +64,7 @@ script Event_ElderBirthday {
 script Event_LadyBirthday {
     lock
     faceplayer
-    msgbox(format("Lady: Happy Birthday {PLAYER}! Now just because it's your birthday, doesn't mean you can just wonder off through the Elder's backyard..."))
+    msgbox(format("Lady: Happy Birthday {PLAYER}! Now just because it's your birthday, doesn't mean you can just wander off through the Elder's backyard..."))
     closemessage
     release
 }
@@ -63,7 +72,7 @@ script Event_BirthdaySurprise {
     lockall
 
     // 1. Initial Dialogue
-    msgbox(format("Morgan: Huh... Why are the lights off?"), MSGBOX_DEFAULT)
+    msgbox(format("Morgan: Huh... Why are the lights off?\pMorgan flipped the light switch..."), MSGBOX_DEFAULT)
     closemessage
 
     // 2. Player Movement

@@ -62,6 +62,8 @@ script HiddenVillage_OnTransition {
             
         //After Entering Tree House
         case 3:
+            setweather(WEATHER_RAIN)
+            doweather
             setflag(FLAG_TEMP_11) 
             setflag(FLAG_TEMP_12)
             setflag(FLAG_TEMP_13)
@@ -74,6 +76,7 @@ script HiddenVillage_OnTransition {
             setflag(FLAG_TEMP_12)
             setflag(FLAG_TEMP_13)
             setflag(FLAG_TEMP_14) // Hides the shadow during State 4
+            setflag(FLAG_TEMP_15)
     }
     end
 }
@@ -154,7 +157,7 @@ script HiddenVillage_EventScript_ElderClass {
     applymovement(LOCALID_FRIEND_STRENGTH, Common_Movement_ExclamationMark)
     playse(SE_PIN)
     waitmovement()
-    msgbox(format("Strength: What was that?!\pBrain: Was that a Pok\emon?!\pHEART: There's no way that was a Pok\emon! Right Elder?!\p"))
+    msgbox(format("Strength: What was that?!\pBrain: Was that a Pok\emon?!\pHEART: There's no way that was a Pok\emon! Right Elder?!"))
     closemessage
     setweather(WEATHER_RAIN)
     doweather
@@ -532,7 +535,7 @@ movement Movement_WalkToLabGrass {
 movement Movement_HeadToLab {
     walk_down
     face_left
-    delay_16 * 2
+    delay_16 * 4
     walk_left
     walk_down * 5
     walk_left * 2
@@ -555,7 +558,6 @@ script EventScript_HiddenVillageBirthdayWarp {
     # Warp directly to the custom birthday edition map
     warp(MAP_HIDDEN_VILLAGE_PLAYER_HOUSE_PARTY, 3, 8)
     waitstate
-    
     releaseall
     end
 }

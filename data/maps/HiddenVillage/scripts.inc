@@ -25,7 +25,7 @@ HiddenVillage_OnTransition_1:
 	case 2, HiddenVillage_OnTransition_8
 # 64 "data/maps/HiddenVillage/scripts.pory"
 	case 3, HiddenVillage_OnTransition_9
-# 72 "data/maps/HiddenVillage/scripts.pory"
+# 74 "data/maps/HiddenVillage/scripts.pory"
 	case 4, HiddenVillage_OnTransition_10
 HiddenVillage_OnTransition_4:
 	end
@@ -80,911 +80,921 @@ HiddenVillage_OnTransition_8:
 
 HiddenVillage_OnTransition_9:
 # 65 "data/maps/HiddenVillage/scripts.pory"
-	setflag FLAG_TEMP_11
+	setweather WEATHER_RAIN
 # 66 "data/maps/HiddenVillage/scripts.pory"
-	setflag FLAG_TEMP_12
+	doweather
 # 67 "data/maps/HiddenVillage/scripts.pory"
-	setflag FLAG_TEMP_13
+	setflag FLAG_TEMP_11
 # 68 "data/maps/HiddenVillage/scripts.pory"
+	setflag FLAG_TEMP_12
+# 69 "data/maps/HiddenVillage/scripts.pory"
+	setflag FLAG_TEMP_13
+# 70 "data/maps/HiddenVillage/scripts.pory"
 	setflag FLAG_TEMP_14
 	goto HiddenVillage_OnTransition_4
 
 HiddenVillage_OnTransition_10:
-# 73 "data/maps/HiddenVillage/scripts.pory"
-	setflag FLAG_TEMP_11
-# 74 "data/maps/HiddenVillage/scripts.pory"
-	setflag FLAG_TEMP_12
 # 75 "data/maps/HiddenVillage/scripts.pory"
-	setflag FLAG_TEMP_13
+	setflag FLAG_TEMP_11
 # 76 "data/maps/HiddenVillage/scripts.pory"
+	setflag FLAG_TEMP_12
+# 77 "data/maps/HiddenVillage/scripts.pory"
+	setflag FLAG_TEMP_13
+# 78 "data/maps/HiddenVillage/scripts.pory"
 	setflag FLAG_TEMP_14
+# 79 "data/maps/HiddenVillage/scripts.pory"
+	setflag FLAG_TEMP_15
 	goto HiddenVillage_OnTransition_4
 
 
 HiddenVillage_EventScript_FriendHeart_Intro::
-# 85 "data/maps/HiddenVillage/scripts.pory"
-	lockall
-# 87 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 6, Common_Movement_ExclamationMark
 # 88 "data/maps/HiddenVillage/scripts.pory"
-	playse SE_PIN
-# 89 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
+	lockall
 # 90 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 6, Heart_Movement_TowardsPlayer
+	applymovement 6, Common_Movement_ExclamationMark
 # 91 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
+	playse SE_PIN
 # 92 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 6, Common_Movement_FaceUp
-# 94 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_FriendHeart_Intro_Text_0
-# 95 "data/maps/HiddenVillage/scripts.pory"
-	closemessage
-# 97 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 6, Heart_RunToBackyard
-# 98 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement 0
-# 99 "data/maps/HiddenVillage/scripts.pory"
-	removeobject 6
+# 93 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 6, Heart_Movement_TowardsPlayer
+# 94 "data/maps/HiddenVillage/scripts.pory"
+	waitmovement 0
+# 95 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 6, Common_Movement_FaceUp
+# 97 "data/maps/HiddenVillage/scripts.pory"
+	msgbox HiddenVillage_EventScript_FriendHeart_Intro_Text_0
+# 98 "data/maps/HiddenVillage/scripts.pory"
+	closemessage
+# 100 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 6, Heart_RunToBackyard
 # 101 "data/maps/HiddenVillage/scripts.pory"
-	setflag FLAG_HIDDEN_VILLAGE_HEART_INTRO_COMPLETE
+	waitmovement 0
 # 102 "data/maps/HiddenVillage/scripts.pory"
-	setvar VAR_TEMP_0, 1
+	removeobject 6
 # 104 "data/maps/HiddenVillage/scripts.pory"
+	setflag FLAG_HIDDEN_VILLAGE_HEART_INTRO_COMPLETE
+# 105 "data/maps/HiddenVillage/scripts.pory"
+	setvar VAR_TEMP_0, 1
+# 107 "data/maps/HiddenVillage/scripts.pory"
 	releaseall
 	end
 
 
 HiddenVillage_EventScript_ElderClass_Left::
-# 112 "data/maps/HiddenVillage/scripts.pory"
+# 115 "data/maps/HiddenVillage/scripts.pory"
 	lockall
-# 113 "data/maps/HiddenVillage/scripts.pory"
+# 116 "data/maps/HiddenVillage/scripts.pory"
 	setvar VAR_TEMP_1, 0
-# 114 "data/maps/HiddenVillage/scripts.pory"
+# 117 "data/maps/HiddenVillage/scripts.pory"
 	goto HiddenVillage_EventScript_ElderClass
 	return
 
 
 HiddenVillage_EventScript_ElderClass_Right::
-# 118 "data/maps/HiddenVillage/scripts.pory"
+# 121 "data/maps/HiddenVillage/scripts.pory"
 	lockall
-# 119 "data/maps/HiddenVillage/scripts.pory"
+# 122 "data/maps/HiddenVillage/scripts.pory"
 	setvar VAR_TEMP_1, 1
-# 120 "data/maps/HiddenVillage/scripts.pory"
+# 123 "data/maps/HiddenVillage/scripts.pory"
 	goto HiddenVillage_EventScript_ElderClass
 	return
 
 
 HiddenVillage_EventScript_ElderClass::
-# 124 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_ElderClass_Text_0
-# 125 "data/maps/HiddenVillage/scripts.pory"
-	closemessage
 # 127 "data/maps/HiddenVillage/scripts.pory"
+	msgbox HiddenVillage_EventScript_ElderClass_Text_0
+# 128 "data/maps/HiddenVillage/scripts.pory"
+	closemessage
+# 130 "data/maps/HiddenVillage/scripts.pory"
 	compare VAR_TEMP_1, 0
 	goto_if_eq HiddenVillage_EventScript_ElderClass_2
-# 130 "data/maps/HiddenVillage/scripts.pory"
+# 133 "data/maps/HiddenVillage/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, HiddenVillage_Movement_PlayerToClassRight
 HiddenVillage_EventScript_ElderClass_1:
-# 133 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 4, HiddenVillage_Movement_StrengthToClass
-# 134 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 3, HiddenVillage_Movement_HeartToClass
-# 135 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 2, HiddenVillage_Movement_BrainToClass
 # 136 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
+	applymovement 4, HiddenVillage_Movement_StrengthToClass
+# 137 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 3, HiddenVillage_Movement_HeartToClass
 # 138 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_ElderClass_Text_1
+	applymovement 2, HiddenVillage_Movement_BrainToClass
 # 139 "data/maps/HiddenVillage/scripts.pory"
-	closemessage
-# 140 "data/maps/HiddenVillage/scripts.pory"
-	clearflag FLAG_TEMP_14
+	waitmovement 0
 # 141 "data/maps/HiddenVillage/scripts.pory"
-	addobject 11
+	msgbox HiddenVillage_EventScript_ElderClass_Text_1
 # 142 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 11, HiddenVillage_Movement_ShadowFlyOver
+	closemessage
 # 143 "data/maps/HiddenVillage/scripts.pory"
-	playse SE_M_FLY
+	clearflag FLAG_TEMP_14
+# 144 "data/maps/HiddenVillage/scripts.pory"
+	addobject 11
 # 145 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement 11, HiddenVillage_Movement_ShadowFlyOver
 # 146 "data/maps/HiddenVillage/scripts.pory"
-	playse SE_PIN
-# 147 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement
+	playse SE_M_FLY
 # 148 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 2, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 # 149 "data/maps/HiddenVillage/scripts.pory"
 	playse SE_PIN
 # 150 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement
 # 151 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 3, Common_Movement_ExclamationMark
+	applymovement 2, Common_Movement_ExclamationMark
 # 152 "data/maps/HiddenVillage/scripts.pory"
 	playse SE_PIN
 # 153 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement
 # 154 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 4, Common_Movement_ExclamationMark
+	applymovement 3, Common_Movement_ExclamationMark
 # 155 "data/maps/HiddenVillage/scripts.pory"
 	playse SE_PIN
 # 156 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement
 # 157 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_ElderClass_Text_2
+	applymovement 4, Common_Movement_ExclamationMark
 # 158 "data/maps/HiddenVillage/scripts.pory"
-	closemessage
+	playse SE_PIN
 # 159 "data/maps/HiddenVillage/scripts.pory"
-	setweather WEATHER_RAIN
+	waitmovement
 # 160 "data/maps/HiddenVillage/scripts.pory"
-	doweather
+	msgbox HiddenVillage_EventScript_ElderClass_Text_2
 # 161 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_ElderClass_Text_3
-# 162 "data/maps/HiddenVillage/scripts.pory"
-	setflag FLAG_TEMP_14
-# 163 "data/maps/HiddenVillage/scripts.pory"
-	removeobject 11
-# 164 "data/maps/HiddenVillage/scripts.pory"
 	closemessage
+# 162 "data/maps/HiddenVillage/scripts.pory"
+	setweather WEATHER_RAIN
+# 163 "data/maps/HiddenVillage/scripts.pory"
+	doweather
+# 164 "data/maps/HiddenVillage/scripts.pory"
+	msgbox HiddenVillage_EventScript_ElderClass_Text_3
+# 165 "data/maps/HiddenVillage/scripts.pory"
+	setflag FLAG_TEMP_14
+# 166 "data/maps/HiddenVillage/scripts.pory"
+	removeobject 11
 # 167 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 4, Movement_StrengthWalkOff
-# 168 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 3, Movement_HeartWalkOff
-# 169 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 2, Movement_BrainWalkOff
+	closemessage
 # 170 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
+	applymovement 4, Movement_StrengthWalkOff
+# 171 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 3, Movement_HeartWalkOff
 # 172 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Movement_WalkToLabGrass
+	applymovement 2, Movement_BrainWalkOff
 # 173 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 5, Movement_HeadToLab
-# 174 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement 0
+# 175 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 1, Movement_WalkToLabGrass
+# 176 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 5, Movement_HeadToLab
 # 177 "data/maps/HiddenVillage/scripts.pory"
-	removeobject 4
-# 178 "data/maps/HiddenVillage/scripts.pory"
-	removeobject 3
-# 179 "data/maps/HiddenVillage/scripts.pory"
-	removeobject 2
+	waitmovement 0
 # 180 "data/maps/HiddenVillage/scripts.pory"
-	removeobject 5
+	removeobject 4
 # 181 "data/maps/HiddenVillage/scripts.pory"
-	setflag FLAG_TEMP_11
+	removeobject 3
+# 182 "data/maps/HiddenVillage/scripts.pory"
+	removeobject 2
+# 183 "data/maps/HiddenVillage/scripts.pory"
+	removeobject 5
 # 184 "data/maps/HiddenVillage/scripts.pory"
-	clearflag FLAG_TEMP_12
-# 185 "data/maps/HiddenVillage/scripts.pory"
-	clearflag FLAG_TEMP_13
-# 186 "data/maps/HiddenVillage/scripts.pory"
-	addobject 7
+	setflag FLAG_TEMP_11
 # 187 "data/maps/HiddenVillage/scripts.pory"
-	addobject 8
+	clearflag FLAG_TEMP_12
 # 188 "data/maps/HiddenVillage/scripts.pory"
-	addobject 9
+	clearflag FLAG_TEMP_13
+# 189 "data/maps/HiddenVillage/scripts.pory"
+	addobject 7
+# 190 "data/maps/HiddenVillage/scripts.pory"
+	addobject 8
 # 191 "data/maps/HiddenVillage/scripts.pory"
+	addobject 9
+# 194 "data/maps/HiddenVillage/scripts.pory"
 	applymovement 7, Movement_StrengthReappear
-# 192 "data/maps/HiddenVillage/scripts.pory"
+# 195 "data/maps/HiddenVillage/scripts.pory"
 	applymovement 8, Movement_HeartReappear
-# 193 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 9, Movement_BrainReappear
 # 196 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 9, Movement_BrainReappear
+# 199 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement 8
-# 197 "data/maps/HiddenVillage/scripts.pory"
-	playse SE_EXIT
-# 198 "data/maps/HiddenVillage/scripts.pory"
-	removeobject 8
 # 200 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 9
-# 201 "data/maps/HiddenVillage/scripts.pory"
 	playse SE_EXIT
-# 202 "data/maps/HiddenVillage/scripts.pory"
-	removeobject 9
+# 201 "data/maps/HiddenVillage/scripts.pory"
+	removeobject 8
+# 203 "data/maps/HiddenVillage/scripts.pory"
+	waitmovement 9
+# 204 "data/maps/HiddenVillage/scripts.pory"
+	playse SE_EXIT
 # 205 "data/maps/HiddenVillage/scripts.pory"
-	setflag FLAG_TEMP_12
+	removeobject 9
 # 208 "data/maps/HiddenVillage/scripts.pory"
+	setflag FLAG_TEMP_12
+# 211 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement 7
-# 209 "data/maps/HiddenVillage/scripts.pory"
+# 212 "data/maps/HiddenVillage/scripts.pory"
 	setobjectxyperm 7, 11, 11
-# 210 "data/maps/HiddenVillage/scripts.pory"
-	setobjectmovementtype 7, MOVEMENT_TYPE_FACE_LEFT
 # 213 "data/maps/HiddenVillage/scripts.pory"
+	setobjectmovementtype 7, MOVEMENT_TYPE_FACE_LEFT
+# 216 "data/maps/HiddenVillage/scripts.pory"
 	setvar VAR_HIDDEN_VILLAGE_STATE, 2
-# 215 "data/maps/HiddenVillage/scripts.pory"
+# 218 "data/maps/HiddenVillage/scripts.pory"
 	releaseall
 	end
 
 HiddenVillage_EventScript_ElderClass_2:
-# 128 "data/maps/HiddenVillage/scripts.pory"
+# 131 "data/maps/HiddenVillage/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, HiddenVillage_Movement_PlayerToClassLeft
 	goto HiddenVillage_EventScript_ElderClass_1
 
 
 HiddenVillage_EventScript_LateTriggerLeft::
-# 223 "data/maps/HiddenVillage/scripts.pory"
-	lockall
-# 224 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Common_Movement_ExclamationMark
-# 225 "data/maps/HiddenVillage/scripts.pory"
-	playse SE_PIN
 # 226 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
+	lockall
 # 227 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Common_Movement_FaceLeft
+	applymovement 1, Common_Movement_ExclamationMark
 # 228 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	playse SE_PIN
 # 229 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement 0
 # 230 "data/maps/HiddenVillage/scripts.pory"
-	call HiddenVillage_EventScript_LateTriggerMain
+	applymovement 1, Common_Movement_FaceLeft
 # 231 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+# 232 "data/maps/HiddenVillage/scripts.pory"
+	waitmovement 0
+# 233 "data/maps/HiddenVillage/scripts.pory"
+	call HiddenVillage_EventScript_LateTriggerMain
+# 234 "data/maps/HiddenVillage/scripts.pory"
 	releaseall
 	end
 
 
 HiddenVillage_EventScript_LateTriggerRight::
-# 236 "data/maps/HiddenVillage/scripts.pory"
-	lockall
-# 237 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Common_Movement_ExclamationMark
-# 238 "data/maps/HiddenVillage/scripts.pory"
-	playse SE_PIN
 # 239 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
+	lockall
 # 240 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Common_Movement_FaceRight
+	applymovement 1, Common_Movement_ExclamationMark
 # 241 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	playse SE_PIN
 # 242 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement 0
 # 243 "data/maps/HiddenVillage/scripts.pory"
-	call HiddenVillage_EventScript_LateTriggerMain
+	applymovement 1, Common_Movement_FaceRight
 # 244 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+# 245 "data/maps/HiddenVillage/scripts.pory"
+	waitmovement 0
+# 246 "data/maps/HiddenVillage/scripts.pory"
+	call HiddenVillage_EventScript_LateTriggerMain
+# 247 "data/maps/HiddenVillage/scripts.pory"
 	releaseall
 	end
 
 
 HiddenVillage_EventScript_LateTriggerMain::
-# 249 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_LateTriggerMain_Text_0
-# 250 "data/maps/HiddenVillage/scripts.pory"
-	closemessage
-# 251 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Common_Movement_FaceDown
 # 252 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	msgbox HiddenVillage_EventScript_LateTriggerMain_Text_0
 # 253 "data/maps/HiddenVillage/scripts.pory"
+	closemessage
+# 254 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 1, Common_Movement_FaceDown
+# 255 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+# 256 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement 0
 	return
 
 
 HiddenVillage_EventScript_DefaultText::
-# 261 "data/maps/HiddenVillage/scripts.pory"
-	lock
-# 262 "data/maps/HiddenVillage/scripts.pory"
-	faceplayer
-# 263 "data/maps/HiddenVillage/scripts.pory"
-	buffernumberstring STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE
 # 264 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_DefaultText_Text_0
+	lock
 # 265 "data/maps/HiddenVillage/scripts.pory"
+	faceplayer
+# 266 "data/maps/HiddenVillage/scripts.pory"
+	buffernumberstring STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE
+# 267 "data/maps/HiddenVillage/scripts.pory"
+	msgbox HiddenVillage_EventScript_DefaultText_Text_0
+# 268 "data/maps/HiddenVillage/scripts.pory"
 	release
 	end
 
 
 HiddenVillage_EventScript_FriendHeart::
-# 270 "data/maps/HiddenVillage/scripts.pory"
-	lock
-# 271 "data/maps/HiddenVillage/scripts.pory"
-	faceplayer
-# 272 "data/maps/HiddenVillage/scripts.pory"
-	switch VAR_HIDDEN_VILLAGE_STATE
 # 273 "data/maps/HiddenVillage/scripts.pory"
+	lock
+# 274 "data/maps/HiddenVillage/scripts.pory"
+	faceplayer
+# 275 "data/maps/HiddenVillage/scripts.pory"
+	switch VAR_HIDDEN_VILLAGE_STATE
+# 276 "data/maps/HiddenVillage/scripts.pory"
 	case 1, HiddenVillage_EventScript_FriendHeart_3
-# 277 "data/maps/HiddenVillage/scripts.pory"
+# 280 "data/maps/HiddenVillage/scripts.pory"
 	buffernumberstring STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE
-# 278 "data/maps/HiddenVillage/scripts.pory"
+# 281 "data/maps/HiddenVillage/scripts.pory"
 	msgbox HiddenVillage_EventScript_DefaultText_Text_0
 HiddenVillage_EventScript_FriendHeart_1:
-# 280 "data/maps/HiddenVillage/scripts.pory"
+# 283 "data/maps/HiddenVillage/scripts.pory"
 	release
 	end
 
 HiddenVillage_EventScript_FriendHeart_3:
-# 274 "data/maps/HiddenVillage/scripts.pory"
+# 277 "data/maps/HiddenVillage/scripts.pory"
 	msgbox HiddenVillage_EventScript_FriendHeart_Text_0
-# 275 "data/maps/HiddenVillage/scripts.pory"
+# 278 "data/maps/HiddenVillage/scripts.pory"
 	closemessage
 	goto HiddenVillage_EventScript_FriendHeart_1
 
 
 HiddenVillage_EventScript_FriendStrength::
-# 285 "data/maps/HiddenVillage/scripts.pory"
-	lock
-# 286 "data/maps/HiddenVillage/scripts.pory"
-	faceplayer
-# 287 "data/maps/HiddenVillage/scripts.pory"
-	switch VAR_HIDDEN_VILLAGE_STATE
 # 288 "data/maps/HiddenVillage/scripts.pory"
-	case 1, HiddenVillage_EventScript_FriendStrength_3
+	lock
+# 289 "data/maps/HiddenVillage/scripts.pory"
+	faceplayer
+# 290 "data/maps/HiddenVillage/scripts.pory"
+	switch VAR_HIDDEN_VILLAGE_STATE
 # 291 "data/maps/HiddenVillage/scripts.pory"
+	case 1, HiddenVillage_EventScript_FriendStrength_3
+# 294 "data/maps/HiddenVillage/scripts.pory"
 	case 2, HiddenVillage_EventScript_FriendStrength_4
-# 302 "data/maps/HiddenVillage/scripts.pory"
+# 305 "data/maps/HiddenVillage/scripts.pory"
 	buffernumberstring STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE
-# 303 "data/maps/HiddenVillage/scripts.pory"
+# 306 "data/maps/HiddenVillage/scripts.pory"
 	msgbox HiddenVillage_EventScript_DefaultText_Text_0
 HiddenVillage_EventScript_FriendStrength_1:
-# 305 "data/maps/HiddenVillage/scripts.pory"
+# 308 "data/maps/HiddenVillage/scripts.pory"
 	release
 	end
 
 HiddenVillage_EventScript_FriendStrength_3:
-# 289 "data/maps/HiddenVillage/scripts.pory"
+# 292 "data/maps/HiddenVillage/scripts.pory"
 	msgbox HiddenVillage_EventScript_FriendStrength_Text_0
-# 290 "data/maps/HiddenVillage/scripts.pory"
+# 293 "data/maps/HiddenVillage/scripts.pory"
 	closemessage
 	goto HiddenVillage_EventScript_FriendStrength_1
 
 HiddenVillage_EventScript_FriendStrength_4:
-# 292 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_FriendStrength_Text_1
-# 293 "data/maps/HiddenVillage/scripts.pory"
-	closemessage
 # 295 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 7, Movement_ClimbTheVine
+	msgbox HiddenVillage_EventScript_FriendStrength_Text_1
 # 296 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
-# 297 "data/maps/HiddenVillage/scripts.pory"
-	playse SE_EXIT
+	closemessage
 # 298 "data/maps/HiddenVillage/scripts.pory"
-	removeobject 7
+	applymovement 7, Movement_ClimbTheVine
+# 299 "data/maps/HiddenVillage/scripts.pory"
+	waitmovement 0
 # 300 "data/maps/HiddenVillage/scripts.pory"
+	playse SE_EXIT
+# 301 "data/maps/HiddenVillage/scripts.pory"
+	removeobject 7
+# 303 "data/maps/HiddenVillage/scripts.pory"
 	setvar VAR_HIDDEN_VILLAGE_STATE, 3
 	goto HiddenVillage_EventScript_FriendStrength_1
 
 
 HiddenVillage_EventScript_Lady::
-# 311 "data/maps/HiddenVillage/scripts.pory"
-	lock
-# 312 "data/maps/HiddenVillage/scripts.pory"
-	faceplayer
 # 314 "data/maps/HiddenVillage/scripts.pory"
-	switch VAR_HIDDEN_VILLAGE_STATE
+	lock
 # 315 "data/maps/HiddenVillage/scripts.pory"
+	faceplayer
+# 317 "data/maps/HiddenVillage/scripts.pory"
+	switch VAR_HIDDEN_VILLAGE_STATE
+# 318 "data/maps/HiddenVillage/scripts.pory"
 	case 0, HiddenVillage_EventScript_Lady_3
-# 321 "data/maps/HiddenVillage/scripts.pory"
+# 324 "data/maps/HiddenVillage/scripts.pory"
 	case 1, HiddenVillage_EventScript_Lady_4
-# 325 "data/maps/HiddenVillage/scripts.pory"
+# 328 "data/maps/HiddenVillage/scripts.pory"
 	case 2, HiddenVillage_EventScript_Lady_5
-# 344 "data/maps/HiddenVillage/scripts.pory"
+# 347 "data/maps/HiddenVillage/scripts.pory"
 	case 3, HiddenVillage_EventScript_Lady_6
-# 348 "data/maps/HiddenVillage/scripts.pory"
+# 351 "data/maps/HiddenVillage/scripts.pory"
 	buffernumberstring STR_VAR_1, VAR_HIDDEN_VILLAGE_STATE
-# 349 "data/maps/HiddenVillage/scripts.pory"
+# 352 "data/maps/HiddenVillage/scripts.pory"
 	msgbox HiddenVillage_EventScript_DefaultText_Text_0
-# 350 "data/maps/HiddenVillage/scripts.pory"
+# 353 "data/maps/HiddenVillage/scripts.pory"
 	closemessage
 HiddenVillage_EventScript_Lady_1:
-# 352 "data/maps/HiddenVillage/scripts.pory"
+# 355 "data/maps/HiddenVillage/scripts.pory"
 	release
 	end
 
 HiddenVillage_EventScript_Lady_3:
-# 316 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_LateTriggerMain_Text_0
-# 317 "data/maps/HiddenVillage/scripts.pory"
-	closemessage
-# 318 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Common_Movement_FaceDown
 # 319 "data/maps/HiddenVillage/scripts.pory"
+	msgbox HiddenVillage_EventScript_LateTriggerMain_Text_0
+# 320 "data/maps/HiddenVillage/scripts.pory"
+	closemessage
+# 321 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 1, Common_Movement_FaceDown
+# 322 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement 0
 	goto HiddenVillage_EventScript_Lady_1
 
 HiddenVillage_EventScript_Lady_4:
-# 322 "data/maps/HiddenVillage/scripts.pory"
+# 325 "data/maps/HiddenVillage/scripts.pory"
 	msgbox HiddenVillage_EventScript_Lady_Text_0
-# 323 "data/maps/HiddenVillage/scripts.pory"
+# 326 "data/maps/HiddenVillage/scripts.pory"
 	closemessage
 	goto HiddenVillage_EventScript_Lady_1
 
 HiddenVillage_EventScript_Lady_5:
-# 327 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_Lady_Text_1
-# 328 "data/maps/HiddenVillage/scripts.pory"
-	closemessage
 # 330 "data/maps/HiddenVillage/scripts.pory"
-	special SpawnCameraObject
+	msgbox HiddenVillage_EventScript_Lady_Text_1
 # 331 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Common_Movement_FaceLeft
-# 332 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
-# 333 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, Movement_CameraPanToTreehouse_FromLady
-# 334 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
-# 336 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_Lady_Text_2
-# 337 "data/maps/HiddenVillage/scripts.pory"
 	closemessage
-# 339 "data/maps/HiddenVillage/scripts.pory"
-	faceplayer
-# 340 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, Movement_CameraReturnFromTreehouse_FromLady
-# 341 "data/maps/HiddenVillage/scripts.pory"
+# 333 "data/maps/HiddenVillage/scripts.pory"
+	special SpawnCameraObject
+# 334 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 1, Common_Movement_FaceLeft
+# 335 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+# 336 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, Movement_CameraPanToTreehouse_FromLady
+# 337 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement 0
+# 339 "data/maps/HiddenVillage/scripts.pory"
+	msgbox HiddenVillage_EventScript_Lady_Text_2
+# 340 "data/maps/HiddenVillage/scripts.pory"
+	closemessage
 # 342 "data/maps/HiddenVillage/scripts.pory"
+	faceplayer
+# 343 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, Movement_CameraReturnFromTreehouse_FromLady
+# 344 "data/maps/HiddenVillage/scripts.pory"
+	waitmovement 0
+# 345 "data/maps/HiddenVillage/scripts.pory"
 	special RemoveCameraObject
 	goto HiddenVillage_EventScript_Lady_1
 
 HiddenVillage_EventScript_Lady_6:
-# 345 "data/maps/HiddenVillage/scripts.pory"
+# 348 "data/maps/HiddenVillage/scripts.pory"
 	msgbox HiddenVillage_EventScript_Lady_Text_3
-# 346 "data/maps/HiddenVillage/scripts.pory"
+# 349 "data/maps/HiddenVillage/scripts.pory"
 	closemessage
 	goto HiddenVillage_EventScript_Lady_1
 
 
 HiddenVillage_EventScript_LadyTrigger::
-# 362 "data/maps/HiddenVillage/scripts.pory"
-	lockall
-# 363 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Common_Movement_ExclamationMark
-# 364 "data/maps/HiddenVillage/scripts.pory"
-	playse SE_PIN
 # 365 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
+	lockall
+# 366 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 1, Common_Movement_ExclamationMark
+# 367 "data/maps/HiddenVillage/scripts.pory"
+	playse SE_PIN
 # 368 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Common_Movement_FaceRight
-# 369 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
-# 370 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement 0
+# 371 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 1, Common_Movement_FaceRight
+# 372 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 # 373 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_Lady_Text_1
-# 374 "data/maps/HiddenVillage/scripts.pory"
-	closemessage
+	waitmovement 0
 # 376 "data/maps/HiddenVillage/scripts.pory"
-	special SpawnCameraObject
-# 378 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Common_Movement_FaceLeft
-# 379 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
-# 380 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, Movement_CameraPanToTreehouse_FromTrigger
-# 381 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
-# 383 "data/maps/HiddenVillage/scripts.pory"
-	msgbox HiddenVillage_EventScript_Lady_Text_2
-# 384 "data/maps/HiddenVillage/scripts.pory"
+	msgbox HiddenVillage_EventScript_Lady_Text_1
+# 377 "data/maps/HiddenVillage/scripts.pory"
 	closemessage
+# 379 "data/maps/HiddenVillage/scripts.pory"
+	special SpawnCameraObject
+# 381 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 1, Common_Movement_FaceLeft
+# 382 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+# 383 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, Movement_CameraPanToTreehouse_FromTrigger
+# 384 "data/maps/HiddenVillage/scripts.pory"
+	waitmovement 0
+# 386 "data/maps/HiddenVillage/scripts.pory"
+	msgbox HiddenVillage_EventScript_Lady_Text_2
 # 387 "data/maps/HiddenVillage/scripts.pory"
-	applymovement 1, Common_Movement_FaceRight
-# 389 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, Movement_CameraReturnFromTreehouse_FromTrigger
+	closemessage
 # 390 "data/maps/HiddenVillage/scripts.pory"
+	applymovement 1, Common_Movement_FaceRight
+# 392 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_CAMERA, Movement_CameraReturnFromTreehouse_FromTrigger
+# 393 "data/maps/HiddenVillage/scripts.pory"
 	waitmovement 0
-# 391 "data/maps/HiddenVillage/scripts.pory"
-	special RemoveCameraObject
 # 394 "data/maps/HiddenVillage/scripts.pory"
+	special RemoveCameraObject
+# 397 "data/maps/HiddenVillage/scripts.pory"
 	applymovement 1, Common_Movement_FaceDown
-# 395 "data/maps/HiddenVillage/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
-# 396 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
 # 398 "data/maps/HiddenVillage/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+# 399 "data/maps/HiddenVillage/scripts.pory"
+	waitmovement 0
+# 401 "data/maps/HiddenVillage/scripts.pory"
 	releaseall
 	end
 
 
-# 406 "data/maps/HiddenVillage/scripts.pory"
+# 409 "data/maps/HiddenVillage/scripts.pory"
 Heart_Movement_TowardsPlayer:
-# 407 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 407 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 407 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 407 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 407 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-	step_end
-
 # 410 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 410 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 410 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 410 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 410 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+	step_end
+
+# 413 "data/maps/HiddenVillage/scripts.pory"
 Heart_RunToBackyard:
-# 411 "data/maps/HiddenVillage/scripts.pory"
+# 414 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
-# 411 "data/maps/HiddenVillage/scripts.pory"
+# 414 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
-# 411 "data/maps/HiddenVillage/scripts.pory"
+# 414 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
-# 411 "data/maps/HiddenVillage/scripts.pory"
+# 414 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
-# 411 "data/maps/HiddenVillage/scripts.pory"
+# 414 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
-# 412 "data/maps/HiddenVillage/scripts.pory"
+# 415 "data/maps/HiddenVillage/scripts.pory"
 	walk_up
-# 412 "data/maps/HiddenVillage/scripts.pory"
+# 415 "data/maps/HiddenVillage/scripts.pory"
 	walk_up
-# 412 "data/maps/HiddenVillage/scripts.pory"
+# 415 "data/maps/HiddenVillage/scripts.pory"
 	walk_up
-# 413 "data/maps/HiddenVillage/scripts.pory"
+# 416 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
-# 413 "data/maps/HiddenVillage/scripts.pory"
+# 416 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
-# 413 "data/maps/HiddenVillage/scripts.pory"
+# 416 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
 	step_end
 
-# 416 "data/maps/HiddenVillage/scripts.pory"
+# 419 "data/maps/HiddenVillage/scripts.pory"
 Movement_ClimbTheVine:
-# 417 "data/maps/HiddenVillage/scripts.pory"
+# 420 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
-# 417 "data/maps/HiddenVillage/scripts.pory"
+# 420 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
-# 418 "data/maps/HiddenVillage/scripts.pory"
+# 421 "data/maps/HiddenVillage/scripts.pory"
 	walk_slow_up
 	step_end
 
-# 422 "data/maps/HiddenVillage/scripts.pory"
+# 425 "data/maps/HiddenVillage/scripts.pory"
 Movement_CameraPanToTreehouse_FromLady:
-# 423 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 423 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-	step_end
-
 # 426 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 426 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+	step_end
+
+# 429 "data/maps/HiddenVillage/scripts.pory"
 Movement_CameraReturnFromTreehouse_FromLady:
-# 427 "data/maps/HiddenVillage/scripts.pory"
+# 430 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
-# 427 "data/maps/HiddenVillage/scripts.pory"
+# 430 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
 	step_end
 
-# 431 "data/maps/HiddenVillage/scripts.pory"
-Movement_CameraPanToTreehouse_FromTrigger:
-# 433 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 433 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 433 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
 # 434 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-	step_end
-
+Movement_CameraPanToTreehouse_FromTrigger:
+# 436 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 436 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 436 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
 # 437 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+	step_end
+
+# 440 "data/maps/HiddenVillage/scripts.pory"
 Movement_CameraReturnFromTreehouse_FromTrigger:
-# 439 "data/maps/HiddenVillage/scripts.pory"
+# 442 "data/maps/HiddenVillage/scripts.pory"
 	walk_up
-# 440 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 440 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 440 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-	step_end
-
 # 443 "data/maps/HiddenVillage/scripts.pory"
-HiddenVillage_Movement_StrengthToClass:
-# 444 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 445 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
+	walk_right
+# 443 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 443 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+	step_end
+
 # 446 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
+HiddenVillage_Movement_StrengthToClass:
 # 447 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
+	walk_down
 # 448 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
+	walk_left
 # 449 "data/maps/HiddenVillage/scripts.pory"
-	face_up
-	step_end
-
+	walk_left
+# 450 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 451 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
 # 452 "data/maps/HiddenVillage/scripts.pory"
+	face_up
+	step_end
+
+# 455 "data/maps/HiddenVillage/scripts.pory"
 HiddenVillage_Movement_HeartToClass:
-# 453 "data/maps/HiddenVillage/scripts.pory"
+# 456 "data/maps/HiddenVillage/scripts.pory"
 	walk_left
-# 453 "data/maps/HiddenVillage/scripts.pory"
+# 456 "data/maps/HiddenVillage/scripts.pory"
 	walk_left
-# 453 "data/maps/HiddenVillage/scripts.pory"
+# 456 "data/maps/HiddenVillage/scripts.pory"
 	walk_left
-# 454 "data/maps/HiddenVillage/scripts.pory"
-	face_up
-	step_end
-
 # 457 "data/maps/HiddenVillage/scripts.pory"
-HiddenVillage_Movement_BrainToClass:
-# 458 "data/maps/HiddenVillage/scripts.pory"
-	delay_16
-# 459 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 459 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 459 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
+	face_up
+	step_end
+
 # 460 "data/maps/HiddenVillage/scripts.pory"
+HiddenVillage_Movement_BrainToClass:
+# 461 "data/maps/HiddenVillage/scripts.pory"
+	delay_16
+# 462 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 462 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 462 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 463 "data/maps/HiddenVillage/scripts.pory"
 	face_up
 	step_end
 
-# 464 "data/maps/HiddenVillage/scripts.pory"
-HiddenVillage_Movement_PlayerToClassLeft:
-# 465 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
-# 466 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
 # 467 "data/maps/HiddenVillage/scripts.pory"
+HiddenVillage_Movement_PlayerToClassLeft:
+# 468 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 469 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 470 "data/maps/HiddenVillage/scripts.pory"
 	face_up
 	step_end
 
-# 470 "data/maps/HiddenVillage/scripts.pory"
+# 473 "data/maps/HiddenVillage/scripts.pory"
 HiddenVillage_Movement_PlayerToClassRight:
-# 471 "data/maps/HiddenVillage/scripts.pory"
+# 474 "data/maps/HiddenVillage/scripts.pory"
 	walk_up
 	step_end
 
-# 475 "data/maps/HiddenVillage/scripts.pory"
+# 478 "data/maps/HiddenVillage/scripts.pory"
 Movement_StrengthWalkOff:
-# 476 "data/maps/HiddenVillage/scripts.pory"
+# 479 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
-# 476 "data/maps/HiddenVillage/scripts.pory"
+# 479 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
-# 476 "data/maps/HiddenVillage/scripts.pory"
+# 479 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
-# 476 "data/maps/HiddenVillage/scripts.pory"
+# 479 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
-# 477 "data/maps/HiddenVillage/scripts.pory"
+# 480 "data/maps/HiddenVillage/scripts.pory"
 	walk_left
-# 477 "data/maps/HiddenVillage/scripts.pory"
+# 480 "data/maps/HiddenVillage/scripts.pory"
 	walk_left
-# 478 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 478 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-	step_end
-
 # 481 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 481 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+	step_end
+
+# 484 "data/maps/HiddenVillage/scripts.pory"
 Movement_HeartWalkOff:
-# 482 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 483 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 483 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 484 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 484 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 484 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
 # 485 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 485 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 486 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
 # 486 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 486 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 487 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
-	step_end
-
+# 487 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 487 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 488 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 488 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
 # 489 "data/maps/HiddenVillage/scripts.pory"
-Movement_BrainWalkOff:
-# 490 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
-# 491 "data/maps/HiddenVillage/scripts.pory"
-	delay_8
-# 492 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 492 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 492 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 493 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 493 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 493 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 494 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 494 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 495 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 495 "data/maps/HiddenVillage/scripts.pory"
+# 489 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
 	step_end
 
-# 499 "data/maps/HiddenVillage/scripts.pory"
-Movement_StrengthReappear:
-# 500 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 501 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
+# 492 "data/maps/HiddenVillage/scripts.pory"
+Movement_BrainWalkOff:
+# 493 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 494 "data/maps/HiddenVillage/scripts.pory"
+	delay_8
+# 495 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 495 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 495 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 496 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 496 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 496 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 497 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 497 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 498 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 498 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+	step_end
+
 # 502 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
+Movement_StrengthReappear:
 # 503 "data/maps/HiddenVillage/scripts.pory"
 	walk_right
 # 504 "data/maps/HiddenVillage/scripts.pory"
-	delay_16
-# 504 "data/maps/HiddenVillage/scripts.pory"
-	delay_16
-# 504 "data/maps/HiddenVillage/scripts.pory"
-	delay_16
-# 504 "data/maps/HiddenVillage/scripts.pory"
-	delay_16
+	walk_right
 # 505 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
+	walk_right
 # 506 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 507 "data/maps/HiddenVillage/scripts.pory"
+	delay_16
+# 507 "data/maps/HiddenVillage/scripts.pory"
+	delay_16
+# 507 "data/maps/HiddenVillage/scripts.pory"
+	delay_16
+# 507 "data/maps/HiddenVillage/scripts.pory"
+	delay_16
+# 508 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 509 "data/maps/HiddenVillage/scripts.pory"
 	face_left
 	step_end
 
-# 509 "data/maps/HiddenVillage/scripts.pory"
-Movement_HeartReappear:
-# 510 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
-# 510 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
-# 511 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 511 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 511 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 511 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 511 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 511 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
 # 512 "data/maps/HiddenVillage/scripts.pory"
-	walk_slow_up
-	step_end
-
+Movement_HeartReappear:
+# 513 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 513 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 514 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 514 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 514 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 514 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 514 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 514 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
 # 515 "data/maps/HiddenVillage/scripts.pory"
-Movement_BrainReappear:
-# 516 "data/maps/HiddenVillage/scripts.pory"
-	delay_8
-# 517 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
-# 517 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
-# 517 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
-# 518 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 518 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 518 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 518 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 518 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 518 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 519 "data/maps/HiddenVillage/scripts.pory"
 	walk_slow_up
 	step_end
 
+# 518 "data/maps/HiddenVillage/scripts.pory"
+Movement_BrainReappear:
+# 519 "data/maps/HiddenVillage/scripts.pory"
+	delay_8
+# 520 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 520 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 520 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 521 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 521 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 521 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 521 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 521 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 521 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
 # 522 "data/maps/HiddenVillage/scripts.pory"
+	walk_slow_up
+	step_end
+
+# 525 "data/maps/HiddenVillage/scripts.pory"
 HiddenVillage_Movement_ShadowFlyOver:
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
-# 523 "data/maps/HiddenVillage/scripts.pory"
+# 526 "data/maps/HiddenVillage/scripts.pory"
 	walk_fast_down
 	step_end
 
-# 526 "data/maps/HiddenVillage/scripts.pory"
-Movement_WalkToLabGrass:
-# 527 "data/maps/HiddenVillage/scripts.pory"
-	walk_right
-# 528 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
-# 528 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
-# 528 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
-# 528 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
-# 528 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
-# 528 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
 # 529 "data/maps/HiddenVillage/scripts.pory"
+Movement_WalkToLabGrass:
+# 530 "data/maps/HiddenVillage/scripts.pory"
+	walk_right
+# 531 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 531 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 531 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 531 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 531 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 531 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 532 "data/maps/HiddenVillage/scripts.pory"
 	face_down
 	step_end
 
-# 532 "data/maps/HiddenVillage/scripts.pory"
+# 535 "data/maps/HiddenVillage/scripts.pory"
 Movement_HeadToLab:
-# 533 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 534 "data/maps/HiddenVillage/scripts.pory"
-	face_left
-# 535 "data/maps/HiddenVillage/scripts.pory"
-	delay_16
-# 535 "data/maps/HiddenVillage/scripts.pory"
-	delay_16
 # 536 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
-# 537 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
 # 537 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 537 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 537 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
-# 537 "data/maps/HiddenVillage/scripts.pory"
-	walk_down
+	face_left
 # 538 "data/maps/HiddenVillage/scripts.pory"
-	walk_left
+	delay_16
 # 538 "data/maps/HiddenVillage/scripts.pory"
+	delay_16
+# 538 "data/maps/HiddenVillage/scripts.pory"
+	delay_16
+# 538 "data/maps/HiddenVillage/scripts.pory"
+	delay_16
+# 539 "data/maps/HiddenVillage/scripts.pory"
 	walk_left
-# 539 "data/maps/HiddenVillage/scripts.pory"
+# 540 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
-# 539 "data/maps/HiddenVillage/scripts.pory"
+# 540 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
-# 539 "data/maps/HiddenVillage/scripts.pory"
+# 540 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 540 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 540 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 541 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 541 "data/maps/HiddenVillage/scripts.pory"
+	walk_left
+# 542 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 542 "data/maps/HiddenVillage/scripts.pory"
+	walk_down
+# 542 "data/maps/HiddenVillage/scripts.pory"
 	walk_down
 	step_end
 
 EventScript_HiddenVillageBirthdayWarp::
-# 545 "data/maps/HiddenVillage/scripts.pory"
-	lockall
 # 548 "data/maps/HiddenVillage/scripts.pory"
+	lockall
+# 551 "data/maps/HiddenVillage/scripts.pory"
 	opendoor 4, 25
-# 549 "data/maps/HiddenVillage/scripts.pory"
-	waitdooranim
 # 552 "data/maps/HiddenVillage/scripts.pory"
+	waitdooranim
+# 555 "data/maps/HiddenVillage/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_WalkIntoDoor
-# 553 "data/maps/HiddenVillage/scripts.pory"
-	waitmovement 0
 # 556 "data/maps/HiddenVillage/scripts.pory"
-	warp MAP_HIDDEN_VILLAGE_PLAYER_HOUSE_PARTY, 3, 8
-# 557 "data/maps/HiddenVillage/scripts.pory"
-	waitstate
+	waitmovement 0
 # 559 "data/maps/HiddenVillage/scripts.pory"
+	warp MAP_HIDDEN_VILLAGE_PLAYER_HOUSE_PARTY, 3, 8
+# 560 "data/maps/HiddenVillage/scripts.pory"
+	waitstate
+# 561 "data/maps/HiddenVillage/scripts.pory"
 	releaseall
 	end
 
 
-# 563 "data/maps/HiddenVillage/scripts.pory"
-Movement_WalkIntoDoor:
-# 564 "data/maps/HiddenVillage/scripts.pory"
-	walk_up
 # 565 "data/maps/HiddenVillage/scripts.pory"
-	set_invisible
+Movement_WalkIntoDoor:
 # 566 "data/maps/HiddenVillage/scripts.pory"
+	walk_up
+# 567 "data/maps/HiddenVillage/scripts.pory"
+	set_invisible
+# 568 "data/maps/HiddenVillage/scripts.pory"
 	step_end
 
 HiddenVillage_EventScript_FriendHeart_Intro_Text_0:
-# 94 "data/maps/HiddenVillage/scripts.pory"
+# 97 "data/maps/HiddenVillage/scripts.pory"
 	.string "Heart: Good morning {PLAYER}! I was\n"
 	.string "wondering if you were going to wake up\l"
 	.string "today.\p"
@@ -993,12 +1003,12 @@ HiddenVillage_EventScript_FriendHeart_Intro_Text_0:
 	.string "lab and let him know you're ready!$"
 
 HiddenVillage_EventScript_ElderClass_Text_0:
-# 124 "data/maps/HiddenVillage/scripts.pory"
+# 127 "data/maps/HiddenVillage/scripts.pory"
 	.string "Elder: Good, you're all here! Everybody\n"
 	.string "gather around.$"
 
 HiddenVillage_EventScript_ElderClass_Text_1:
-# 138 "data/maps/HiddenVillage/scripts.pory"
+# 141 "data/maps/HiddenVillage/scripts.pory"
 	.string "Elder: Welcome everybody, today we're\n"
 	.string "going to be learning about taming\l"
 	.string "Pokémon.\p"
@@ -1008,15 +1018,14 @@ HiddenVillage_EventScript_ElderClass_Text_1:
 	.string "--To be continued--$"
 
 HiddenVillage_EventScript_ElderClass_Text_2:
-# 157 "data/maps/HiddenVillage/scripts.pory"
+# 160 "data/maps/HiddenVillage/scripts.pory"
 	.string "Strength: What was that?!\p"
 	.string "Brain: Was that a Pokémon?!\p"
 	.string "HEART: There's no way that was a\n"
-	.string "Pokémon! Right Elder?!\p"
-	.string "$"
+	.string "Pokémon! Right Elder?!$"
 
 HiddenVillage_EventScript_ElderClass_Text_3:
-# 161 "data/maps/HiddenVillage/scripts.pory"
+# 164 "data/maps/HiddenVillage/scripts.pory"
 	.string "Elder: Alright everybody, that's enough\n"
 	.string "for today...\p"
 	.string "We can finish this lesson tomorrow!\p"
@@ -1024,48 +1033,48 @@ HiddenVillage_EventScript_ElderClass_Text_3:
 	.string "to the treehouse!$"
 
 HiddenVillage_EventScript_LateTriggerMain_Text_0:
-# 249 "data/maps/HiddenVillage/scripts.pory"
+# 252 "data/maps/HiddenVillage/scripts.pory"
 	.string "{PLAYER}! You're going to be late! Hurry\n"
 	.string "up and see the Village Elder...$"
 
 HiddenVillage_EventScript_DefaultText_Text_0:
-# 264 "data/maps/HiddenVillage/scripts.pory"
+# 267 "data/maps/HiddenVillage/scripts.pory"
 	.string "DEBUG_MISSING TEXT\n"
 	.string "State ({STR_VAR_1})$"
 
 HiddenVillage_EventScript_FriendHeart_Text_0:
-# 274 "data/maps/HiddenVillage/scripts.pory"
+# 277 "data/maps/HiddenVillage/scripts.pory"
 	.string "Heart: It took you long enough! Hey...\n"
 	.string "are you okay?$"
 
 HiddenVillage_EventScript_FriendStrength_Text_0:
-# 289 "data/maps/HiddenVillage/scripts.pory"
+# 292 "data/maps/HiddenVillage/scripts.pory"
 	.string "Strength: You're finally here! We've\n"
 	.string "been waiting for you!$"
 
 HiddenVillage_EventScript_FriendStrength_Text_1:
-# 292 "data/maps/HiddenVillage/scripts.pory"
+# 295 "data/maps/HiddenVillage/scripts.pory"
 	.string "Strength: Hey {PLAYER}! Do you remember\n"
 	.string "how to get into the treehouse?\p"
 	.string "Just climb the vine like this!$"
 
 HiddenVillage_EventScript_Lady_Text_0:
-# 322 "data/maps/HiddenVillage/scripts.pory"
+# 325 "data/maps/HiddenVillage/scripts.pory"
 	.string "The Elder asked for help keeping an eye\n"
 	.string "on you kids!$"
 
 HiddenVillage_EventScript_Lady_Text_1:
-# 327 "data/maps/HiddenVillage/scripts.pory"
+# 330 "data/maps/HiddenVillage/scripts.pory"
 	.string "H-hey! There's nothing past here...\n"
 	.string "Weren't you going to see your friends\l"
 	.string "at the Treehouse? It's right over\l"
 	.string "there!$"
 
 HiddenVillage_EventScript_Lady_Text_2:
-# 336 "data/maps/HiddenVillage/scripts.pory"
+# 339 "data/maps/HiddenVillage/scripts.pory"
 	.string "You can climb up it using the vine!$"
 
 HiddenVillage_EventScript_Lady_Text_3:
-# 345 "data/maps/HiddenVillage/scripts.pory"
+# 348 "data/maps/HiddenVillage/scripts.pory"
 	.string "It's pretty late... Isn't it past your\n"
 	.string "bedtime?$"

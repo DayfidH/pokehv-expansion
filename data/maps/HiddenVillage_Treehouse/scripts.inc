@@ -143,4 +143,5 @@ HiddenVillage_Treehouse_EventScript_Cutscene_Text_0:
 
 HiddenVillage_Treehouse_EventScript_DefaultText_Text_0:
 # 53 "data/maps/HiddenVillage_Treehouse/scripts.pory"
-	.string "Hi {PLAYER}!$"
+	.string "We're not supposed to be here... Hehe...\n"
+	.string "Ignore us. David forgot to hide us!$"
